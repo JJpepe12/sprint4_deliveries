@@ -52,12 +52,12 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-      <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
+      <Route element={<PublicRouter isAuthentication={isLoggedIn} />}>
             <Route index element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
         <Route path="/" element={<Layout />}>
-          <Route element={<PrivateRouter isAutentication={isLoggedIn} />}>
+          <Route element={<PrivateRouter isAuthentication={isLoggedIn} />}>
             <Route path="home" element={<Home />} />
             <Route path="details" element={<Home />} />
             <Route path="order" element={<Home />} />
@@ -71,17 +71,17 @@ const AppRouter = () => {
 };
 
 export default AppRouter;
-{/* <BrowserRouter>
-//       <Routes>
+/* <BrowserRouter>
+      <Routes>
           <Route index element={<Login />} /> 
-//         <Route path="/" element={<Layout />}>
-//           <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
-//           
-//             <Route path="register" element={<Register />} />
-//           </Route>
-//           <Route element={<PrivateRouter isAutentication={isLoggedIn} />}>
-//             <Route path="home" element={<Home />} />
-//           </Route>
-//         </Route>
-//       </Routes>
-//     </BrowserRouter> */}
+        <Route path="/" element={<Layout />}>
+          <Route element={<PublicRouter isAuthentication={isLoggedIn} />}>
+          
+            <Route path="register" element={<Register />} />
+          </Route>
+          <Route element={<PrivateRouter isAuthentication={isLoggedIn} />}>
+            <Route path="home" element={<Home />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter> */
