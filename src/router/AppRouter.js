@@ -12,46 +12,45 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionLoginSync } from "../redux/actions/userActions";
 
 const AppRouter = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-  // const [loading, setLoading] = useState(true);
+  // const [isLoggedIn, setIsLoggedIn] = useState(null);
 
-  const dispatch = useDispatch();
 
-  const { user }= useSelector((store) => store.user);
-  console.log(user);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (userLogged) => {
-      if (userLogged?.uid) {
-        setIsLoggedIn(true);
+  // const { user }= useSelector((store) => store.user);
+  // console.log(user);
 
-        if (!Object.entries(user).length) {
-          console.log("No hay info");
-          const logged = {
-            email: userLogged.auth.currentUser.email,
-            name: userLogged.auth.currentUser.displayName,
-            avatar: userLogged.auth.currentUser.photoURL,
-            accessToken: userLogged.auth.currentUser.accessToken,
-          };
-          dispatch(actionLoginSync(logged));
-        }
-        console.log(userLogged);
-      } else {
-        setIsLoggedIn(false);
-      }
-    });
-  }, [user, dispatch]);
-  
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (userLogged) => {
+  //     if (userLogged?.uid) {
+  //       setIsLoggedIn(true);
+
+  //       if (!Object.entries(user).length) {
+  //         console.log("No hay info");
+  //         const logged = {
+  //           email: userLogged.auth.currentUser.email,
+  //           name: userLogged.auth.currentUser.displayName,
+  //           avatar: userLogged.auth.currentUser.photoURL,
+  //           accessToken: userLogged.auth.currentUser.accessToken,
+  //         };
+  //         dispatch(actionLoginSync(logged));
+  //       }
+  //       console.log(userLogged);
+  //     } else {
+  //       setIsLoggedIn(false);
+  //     }
+  //   });
+  // }, [user, dispatch]);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route element={<PublicRouter isAuthentication={isLoggedIn} />}>
+          <Route element={<PublicRouter  />}>
             <Route index element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
-          <Route element={<PrivateRouter isAuthentication={isLoggedIn} />}>
+          <Route element={<PrivateRouter  />}>
             <Route path="home" element={<Home />} />
             {/* <Route path="details" element={<Home />} />
             <Route path="order" element={<Home />} />
