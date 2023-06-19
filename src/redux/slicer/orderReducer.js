@@ -4,7 +4,7 @@ const orderState = {
     order: []
 }
 
-export const orderReducer = (state= orderState, action) => {
+export const orderSlicer = (state= orderState, action) => {
     switch (action.type) {
         case orderTypes.ORDER_GET:
             return{
