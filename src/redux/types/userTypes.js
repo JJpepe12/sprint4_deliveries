@@ -1,0 +1,7 @@
+export const userTypes = {
+    CREATE_USER : 'CREATE_USER',
+    LOGIN_USER: 'LOGIN_USER',
+    GET_USER: 'GET_USER',
+    EDIT_USER: 'EDIT_USER',
+    LOGOUT_USER: "LOGOUT_USER",
+}
