@@ -9,15 +9,13 @@ import Home from "../pages/Home";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { useDispatch, useSelector } from "react-redux";
-import { actionLoginSync } from "../redux/actions/userActions";
+// import { actionLoginSync } from "../redux/actions/userActions";
 
 const AppRouter = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(null);
 
 
-  // const dispatch = useDispatch();
-
-  // const { user }= useSelector((store) => store.user);
+  // const { user } = useSelector((store) => store.user);
   // console.log(user);
 
   // useEffect(() => {
@@ -33,14 +31,20 @@ const AppRouter = () => {
   //           avatar: userLogged.auth.currentUser.photoURL,
   //           accessToken: userLogged.auth.currentUser.accessToken,
   //         };
-  //         dispatch(actionLoginSync(logged));
+  //         // dispatch(actionLoginSync(logged));
   //       }
   //       console.log(userLogged);
   //     } else {
   //       setIsLoggedIn(false);
   //     }
+
+  //     // setLoading(false);
   //   });
   // }, [user, dispatch]);
+
+  // if (loading) {
+  //   return <Spinner animation="grow" />;
+  // }
 
   return (
     <BrowserRouter>
@@ -58,6 +62,8 @@ const AppRouter = () => {
             <Route path="profile" element={<Home />} /> */}
           </Route>
         </Route>
+        {/* <Route path="succesPurchases" element={<Purchases />} />
+        <Route path="*" element={<NotFound/>}/> */}
       </Routes>
     </BrowserRouter>
   );
