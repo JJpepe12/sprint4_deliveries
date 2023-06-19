@@ -127,7 +127,7 @@
 //   };
 // };
 
-import { ussersTypes } from "../type/ussersTypes"
+import { userTypes } from "../types/userTypes"
 import { createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
@@ -135,27 +135,27 @@ import { createUserWithEmailAndPassword,
   } from "firebase/auth";
   import { auth } from "../../firebase/firebaseConfig";
 
-  export const updateUssersAction = (id) => {
-    return {
-        type: 'todoTypes.USSERS_UPDATE',
-        payload: id
-    }
-}
-export const createUssersAction = (id) => {
-  return {
-      type: 'todoTypes.USSERS_CREATE',
-      payload: id
-  }
-}
+//   export const updateUssersAction = (id) => {
+//     return {
+//         type: userTypes.USERS_UPDATE,
+//         payload: id
+//     } 
+// }
+// export const createUssersAction = (id) => {
+//   return {
+//       type: userTypes.USERS_CREATE,
+//       payload: id
+//   }
+// }
 
-export const getUssersAction = (id) => {
-  return {
-      type: 'todoTypes.USSERS_GET',
-      payload: id
-  }
-}
+// export const getUssersAction = (id) => {
+//   return {
+//       type: userTypes.USERS_GET,
+//       payload: id
+//   }
+// }
 export const listUssersAction = () => {
   return {
-      type: 'todoTypes.USSERS_GET',
+      type: userTypes.USERS_GET,
   }
 }

@@ -6,8 +6,8 @@ import { actionLogoutAsync } from "../redux/actions/userActions";
 const Home = () => {
   const dispatch = useDispatch();
 
-  const { user } = useSelector((store) => store.user);
-  console.log(user);
+  // const { user } = useSelector((store) => store.user);
+  // console.log(user);
 
   return (
     <div>
@@ -16,9 +16,9 @@ const Home = () => {
         <Image src={user?.avatar} roundedCircle />
         <h2>{user?.name}</h2>
       </div> */}
-      <button onClick={() => dispatch(actionLogoutAsync())}>
+      {/* <button onClick={() => dispatch(actionLogoutAsync())}> */}
         Cerrar Sesión
-      </button>
+      {/* </button> */}
     </div>
   );
 };
