@@ -1,4 +1,4 @@
-import { userTypes } from "../types/userTypes";
+import { usserTypes } from "../types/userTypes";
 
 const initialValue = {
     user: {},
@@ -6,9 +6,9 @@ const initialValue = {
 }
 
 
-const userReducer = (state = initialValue, action) => {
+const usserReducer = (state = initialValue, action) => {
     switch (action.type) {
-        case userTypes.CREATE_USER:
+        case usserTypes.CREATE_USER:
             
             return {
                 ...state,
@@ -23,7 +23,7 @@ const userReducer = (state = initialValue, action) => {
                 user: null,
                 error: action.payload
             }
-        case userTypes.LOGGIN_USER:
+        case usserTypes.LOGGIN_USER:
             return {
                 ...state,
                 user: {
@@ -37,4 +37,4 @@ const userReducer = (state = initialValue, action) => {
     }
 }
 
-export default userReducer;
+export default usserReducer;

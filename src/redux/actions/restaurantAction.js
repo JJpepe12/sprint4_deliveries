@@ -1,5 +1,5 @@
 import { addDoc, collection, deleteDoc, doc, getDocs, query, where } from "firebase/firestore"
-import {database} from '../../firebase/firebaseConfi';
+import {database} from '../../firebase/firebaseConfig';
 import { foodTypes, restaurantTypes } from "../types/restaurantTypes";
 
 const collectionName = 'restaurants';
@@ -202,22 +202,5 @@ const actionDeleteRestSync = (restaurant) => {
     }
 }
 
-export const actionAddFoodAsync = (food) => {
-    return async (dispatch) => {
-      try {
-        const foodCollection = collection(database, collectionFood);
-        const docs = await addDoc(foodCollection, food);
-        dispatch(actionAddFoodSync({ id: docs.id, ...food }));
-      } catch (error) {
-        console.log(error);
-        dispatch(actionAddFoodSync({}));
-      }
-    };
-  };
-  
-  const actionAddFoodSync = (food) => {
-    return {
-      type: foodTypes.FOOD_ADD,
-      payload: food,
-    };
+
   };

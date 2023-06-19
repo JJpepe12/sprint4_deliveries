@@ -4,7 +4,7 @@ const restaurantState = {
     restaurant: []
 }
 
-export const restautantReducer = (state = restaurantState, action) => {
+export const restaurantReducer = (state = restaurantState, action) => {
     switch (action.type) {
         case restaurantTypes.RESTAURANT_GET:
             return{
@@ -63,3 +63,4 @@ export const foodReducer = (state= foodState, action) => {
             return state ;
     }
 }
+

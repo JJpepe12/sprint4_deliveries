@@ -1,7 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { orderReducer } from "../reducers/orderReducer";
-import { foodReducer, restautantReducer } from "../reducers/restaurantReducer";
-import { userReducer } from "../reducers/userReducer";
+import { MiddlewareArray, configureStore } from "@reduxjs/toolkit";
+import { orderReducer } from "../slicer/orderReducer";
+import { restautantReducer } from "../slicer/restaurantReducer";
+import { usserReducer } from "../slicer/usserReducer";
+import { dishesReducer } from "../slicer/dishesSlicer";
+import { applyMiddleware } from "@reduxjs/toolkit";
+import thunkMiddleware from "redux-thunk";
 const reducer = {
     userStore: userReducer,
     restaurantStore: restautantReducer,
@@ -12,8 +15,9 @@ const store = configureStore({
     reducer,
     devTool: process.env.NODE_ENV !== "production",
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
+        getDefaultMiddleware({  
             serializableCheck: false,
         }),
 });
 export default store;
+    // middleware: applyMiddleware [thunkMiddleware]

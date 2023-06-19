@@ -1,5 +1,5 @@
 import { addDoc, collection, getDocs} from "firebase/firestore"
-import {database} from '../../firebase/firebaseConfi';
+import {database} from '../../firebase/firebaseConfig';
 import { orderTypes } from "../types/orderTypes";
 
 const collectionOrder = 'order';

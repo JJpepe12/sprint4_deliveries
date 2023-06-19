@@ -11,23 +11,19 @@ import { FacebookAuthProvider } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDW3wOrqc8n9MXxayZ2nVbu9XsnkFag8XQ",
-  authDomain: "m2-sprint4.firebaseapp.com",
-  projectId: "m2-sprint4",
-  storageBucket: "m2-sprint4.appspot.com",
-  messagingSenderId: "475811530461",
-  appId: "1:475811530461:web:b56bee95aa86913bdf7d34",
-  measurementId: "G-D8SX4LCFMF"
+  apiKey: "AIzaSyD2X3FZ30j2Ul9oSEb4V0SOIQzErbUHRUE",
+  authDomain: "woven-diorama-368304.firebaseapp.com",
+  projectId: "woven-diorama-368304",
+  storageBucket: "woven-diorama-368304.appspot.com",
+  messagingSenderId: "386005766621",
+  appId: "1:386005766621:web:90f88e45ea425ff199e634",
+  measurementId: "G-FMTG0QS7BR"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const database = getFirestore(app);
-//const analytics = getAnalytics(app);
 export const google = new GoogleAuthProvider();
 export const facebook = new FacebookAuthProvider();
-
-// 871605043967500
-// 7e8859ef08929f495f644ed2e93e2dae
-// https://m2-sprint4.firebaseapp.com/__/auth/handler
+//const analytics = getAnalytics(app);
