@@ -127,35 +127,37 @@
 //   };
 // };
 
-import { ussersTypes } from "../type/ussersTypes"
-import { createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    updateProfile, signInWithPopup
-  } from "firebase/auth";
-  import { auth } from "../../firebase/firebaseConfig";
 
-  export const updateUssersAction = (id) => {
-    return {
-        type: 'todoTypes.USSERS_UPDATE',
-        payload: id
-    }
-}
-export const createUssersAction = (id) => {
-  return {
-      type: 'todoTypes.USSERS_CREATE',
-      payload: id
-  }
-}
 
-export const getUssersAction = (id) => {
-  return {
-      type: 'todoTypes.USSERS_GET',
-      payload: id
-  }
-}
-export const listUssersAction = () => {
-  return {
-      type: 'todoTypes.USSERS_GET',
-  }
-}
+// import { ussersTypes } from "../type/ussersTypes"
+// import { createUserWithEmailAndPassword,
+//     signInWithEmailAndPassword,
+//     signOut,
+//     updateProfile, signInWithPopup
+//   } from "firebase/auth";
+//   import { auth } from "../../firebase/firebaseConfig";
+
+//   export const updateUssersAction = (id) => {
+//     return {
+//         type: 'todoTypes.USSERS_UPDATE',
+//         payload: id
+//     }
+// }
+// export const createUssersAction = (id) => {
+//   return {
+//       type: 'todoTypes.USSERS_CREATE',
+//       payload: id
+//   }
+// }
+
+// export const getUssersAction = (id) => {
+//   return {
+//       type: 'todoTypes.USSERS_GET',
+//       payload: id
+//   }
+// }
+// export const listUssersAction = () => {
+//   return {
+//       type: 'todoTypes.USSERS_GET',
+//   }
+// }

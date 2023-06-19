@@ -24,17 +24,19 @@
 //             return state ;
 //     }
 // }
-import { createSlice } from "@reduxjs/toolkit";
-export const dishesSlicer = createSlice({
-        name: "showDishes",
-    initialState:{
 
-    },
-    reducers: {
-        switch (action.type) {
-        case
-        dishesTypes.DISHES_FILTERED
-        }
-    }
-})
-export default dishesSlicer.reducer
+
+// import { createSlice } from "@reduxjs/toolkit";
+// export const dishesSlicer = createSlice({
+//         name: "showDishes",
+//     initialState:{
+
+//     },
+//     reducers: {
+//         switch (action.type) {
+//         case
+//         dishesTypes.DISHES_FILTERED
+//         }
+//     }
+// })
+// export default dishesSlicer.reducer

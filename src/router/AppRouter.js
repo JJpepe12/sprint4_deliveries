@@ -9,7 +9,7 @@ import Home from "../pages/Home";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { useDispatch, useSelector } from "react-redux";
-import { actionLoginSync } from "../redux/actions/userActions";
+import { actionLoginSync } from "../redux/actions/usserActions";
 // import Spinner from "react-bootstrap/Spinner";
 
 const AppRouter = () => {
