@@ -4,7 +4,7 @@
 //     restaurant: []
 // }
 
-// export const restaurantReducer = (state = restaurantState, action) => {
+// export const restaurantSlicer = (state = restaurantState, action) => {
 //     switch (action.type) {
 //         case restaurantTypes.RESTAURANT_GET:
 //             return{
