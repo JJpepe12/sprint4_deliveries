@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/logo.svg";
 import Form from "../components/formLogIn/Form";
-import { Button, Center, HStack, Stack, Text } from "@chakra-ui/react";
+import { Button, HStack, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc"
 
