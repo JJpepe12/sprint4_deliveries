@@ -5,7 +5,7 @@ import Register from "../pages/Register";
 import PublicRouter from "./PublicRouter";
 import PrivateRouter from "./PrivateRouter";
 // import Layout from "../components/Layout";
-import Login from "../pages/Login";
+// import Login from "../pages/Login";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 // import { onAuthStateChanged } from "firebase/auth";
@@ -54,11 +54,12 @@ return (
       <Routes>
         <Route path="/">
           <Route element={<PublicRouter />}>
-            <Route index element={<Login />} />
+            {/* <Route index element={<Login />} /> */}
             <Route path="register" element={<Register />} />
+            <Route index element={<Home />} />
           </Route>
           <Route element={<PrivateRouter />}>
-            <Route path="home" element={<Home />} />
+            
             {/* <Route path="details" element={<Home />} />
             <Route path="order" element={<Home />} />
             <Route path="search" element={<Home />} />
