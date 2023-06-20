@@ -1,3 +1,48 @@
+import React from "react";
+import logo from "../assets/logo.svg";
+import Form from "../components/formLogIn/Form";
+import { Button, Center, HStack, Stack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc"
+
+const Login = () => {
+  return (
+    <section>
+      <Stack alignItems="center" p={5}>
+        <img src={logo} alt="logo delivery" />
+        <Text fontSize="2rem">Sing in</Text>
+        <Text textAlign="center">
+          Login or create an account with your phone number to start ordering
+        </Text>
+        {/* <Form handleUser={handleUser} /> */}
+        <Form />
+        <h2> Restablecer contraseña </h2>
+        <HStack my={5}>
+          <Text>Inicia sesión con</Text>
+          <Button bg="#FFE031" leftIcon={<FcGoogle />}>
+            Google
+          </Button>
+        </HStack>
+        <div>
+          <h5>¿No tienes una cuenta?</h5>
+          <Stack
+            direction="row"
+            textAlign="center"
+            ml={5}
+            _hover={{ cursor: "pointer" }}
+          >
+            <Text fontSize="md" fontWeight="bold" color="blue.500" >
+              <Link to="/register">Regístrate aquí</Link>
+            </Text>
+          </Stack>
+        </div>
+      </Stack>
+    </section>
+  );
+};
+
+export default Login;
+
 // import React from 'react';
 // import Button from "react-bootstrap/Button";
 // import Form from "react-bootstrap/Form";
@@ -17,7 +62,7 @@
 //   password: yup
 //     .string()
 //     .required("Este campo es obligatorio")
-      
+
 // });
 
 // const Login = () => {
@@ -30,7 +75,7 @@
 //     } = useForm({
 //       resolver: yupResolver(schema),
 //     });
-  
+
 //   const logIn = (dataForm) => {
 //     console.log(dataForm);
 //     dispatch(loginActionAsync(dataForm.email, dataForm.password));
