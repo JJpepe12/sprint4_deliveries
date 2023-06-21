@@ -1,10 +1,10 @@
-import { MiddlewareArray, configureStore } from "@reduxjs/toolkit";
+import {  configureStore } from "@reduxjs/toolkit";
 import { orderSlicer } from "../slicer/orderSlicer";
 import { restaurantSlicer } from "../slicer/restaurantSlicer";
 import {userSlicer} from "../slicer/userSlicer";
 import { dishesSlicer } from "../slicer/dishesSlicer";
-import { applyMiddleware } from "@reduxjs/toolkit";
-import thunkMiddleware from "redux-thunk";
+// import { applyMiddleware } from "@reduxjs/toolkit";
+// import thunkMiddleware from "redux-thunk";
 const reducer = {
     userStore: userSlicer,
     restaurantStore: restaurantSlicer,
@@ -20,4 +20,4 @@ const store = configureStore({
         }),
 });
 export default store;
-    // middleware: applyMiddleware [thunkMiddleware]
+//     // middleware: applyMiddleware [thunkMiddleware]
