@@ -9,7 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import salad_2 from "../assets/platosrest1/salad(2).png";
+import salad_2 from "../assets/platosrest1/salad(2).svg";
 import time from "../assets/icon/time.png";
 
 const FoodPlate = () => {

@@ -12,8 +12,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import geoLocation from "../assets/icon/locatio.png";
-import TodaySpecial from "../assets/todayspecial.png";
-import restaurant1 from "../assets/restaurant/rest1.png";
+import TodaySpecial from "../assets/Promo1.png";
+import restaurant1 from "../assets/restaurant/rest1.svg";
 import Footer from "../components/footer/Footer";
 import { FaStar } from "react-icons/fa";
 import FreeDel from "../assets/freedelivery.jpg"
@@ -49,13 +49,13 @@ const Home = () => {
           </Box>
 
           {/*............ CARRUSEL ENVIOS......... */}
-          <Slider {...settings2}>
+          <Slider {...settings2} alignItems="center">
             <Box display="flex" flexDirection="row ">
               <Image
                 src={TodaySpecial}
                 alt="Today Special"
                 borderRadius="9px"
-                w="325px"
+                w="300px"
               />
             </Box>
 
@@ -65,7 +65,7 @@ const Home = () => {
                 alt="Domicilio"
                 borderRadius="9px"
                 w="325px"
-                marginLeft="40px"
+                marginLeft="30px"
               />
             </Box>
 
@@ -74,8 +74,8 @@ const Home = () => {
                 src={FreeDel}
                 alt="Domicilio"
                 borderRadius="9px"
-                w="280px"
-                marginLeft="40px"
+                w="210px"
+                marginLeft="50px"
               />
             </Box>
           </Slider>

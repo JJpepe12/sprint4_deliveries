@@ -4,8 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 import iconAll from "../../assets/icon/all.png";
-import iconHamburguer from "../../assets/icon/hamburguer.png";
-import iconPizza from "../../assets/icon/pizza.png";
+import iconHamburger from "../../assets/icon/hamburger_icon.svg";
+import iconPizza from "../../assets/icon/pizza_icon.svg";
 import iconSalad from "../../assets/icon/ensalada.png";
 import iconCoffe from "../../assets/icon/taza-de-cafe.png";
 
@@ -19,7 +19,7 @@ const categories = [
       id: 2,
       nombre: "Fast food",
   
-      image: iconHamburguer,
+      image: iconHamburger,
     },
     {
       id: 3,
