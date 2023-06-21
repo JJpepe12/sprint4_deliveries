@@ -54,7 +54,7 @@ const RestaurantsDetails = () => {
         
           
         >
-          <Card  display="flex" flexDirection="row" w="100%" >
+          <Card  display="flex" flexDirection="row" w="100%" shadow="0" >
             <Image
               objectFit="cover"
               width="145px"

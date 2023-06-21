@@ -103,6 +103,7 @@ const Home = () => {
               flexDirection="row"
               overflow="hidden"
               variant="outline"
+              border="none"
             >
               <Image
                 objectFit="cover"
