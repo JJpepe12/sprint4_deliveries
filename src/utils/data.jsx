@@ -1,6 +1,6 @@
 import salad_1 from "../assets/platosrest1/salad.png";
 import salad_2 from "../assets/platosrest1/salad(1).png";
-import salad_3 from "../assets/platosrest1/salad(2).png";
+import salad_3 from "../assets/platosrest1/salad(2).svg";
 import salad_4 from "../assets/platosrest1/salad(3).png";
 import salad_5 from "../assets/platosrest1/salad(4).jpg";
 import salad_6 from "../assets/platosrest1/salad(5).png";
