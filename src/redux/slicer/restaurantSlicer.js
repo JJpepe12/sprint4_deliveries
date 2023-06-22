@@ -37,32 +37,7 @@
 //     food: []
 // }
 
-// export const foodReducer = (state= foodState, action) => {
-//     switch (action.type) {
-//         case foodTypes.FOOD_GET:
-//             return{
-//                 ...state,
-//                 food: action.payload.food
-//             };
-//         case foodTypes.FOOD_FILTERED:
-//             return{
-//                 ...state,
-//                 food: action.payload.food
-//             };
-//         case foodTypes.FOOD_BUTTON:
-//             return{
-//                 ...state,
-//                 food: action.payload.food
-//             }
-//         case foodTypes.FOOD_ADD:
-//             return {
-//                 ...state,
-//                 food: [...state.food, action.payload],
-//             };
-//         default:
-//             return state ;
-//     }
-// }
+
  import { restaurantsTypes } from "../types/restaurantTypes";
 
  const restaurantsState = {
@@ -77,7 +52,20 @@ export const restaurantsSlicer = (state = restaurantsState, action) => {
                 ...state,
                 restaurants: action.payload.restaurant
             };
+        case restaurantsTypes.RESTAURANT_FILTERED:
+                return{
+                    ...state,
+                    restaurants: action.payload.restaurant,
+                };
         default:
             return state;
     };
 };
+// export const actionRestaurantsFilter=(RestaurantsFilter)=>{
+//     return{
+//       type:restaurantsTypes.RESTAURANT_FILTERED,
+//       payload:RestaurantsFilter
+//     }
+//   }
+
+  

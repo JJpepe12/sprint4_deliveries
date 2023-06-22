@@ -33,3 +33,33 @@ const actionGetRestaurantSync = (restaurant) => {
         }
     }
 }
+//---------------------------FILTRO------------------------------------------///
+export const actionFilterRestaurantAsync = (searchParam, searchValue) => {
+    return async (dispatch) =>{
+        const restaurantsCollection = collection(database, collectionName);
+        const q = query(restaurantsCollection, where(searchParam, "==", searchValue));
+        const restaurants = [];
+        try {
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) =>{
+                restaurants.push({
+                    id: doc.id,
+                    ...doc.data(),
+                });
+            });
+        } catch (error) {
+            console.log(error);
+        }finally{
+            dispatch(actionFilterRestaurantSync(restaurants))
+        }
+    };
+};
+
+const actionFilterRestaurantSync = (restaurant) => {
+    return{
+        type: restaurantsTypes.RESTAURANT_FILTERED,
+        payload: {
+            restaurant: restaurant,
+        },
+    };
+};

@@ -48,6 +48,7 @@ const Home = () => {
   }, [dispatch]);
 
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+
   const handleCardClick = (restaurant) => {
     console.log("Go details")
     sessionStorage.setItem('infoRestaurant', JSON.stringify(restaurant));
@@ -120,7 +121,7 @@ const Home = () => {
               p={2}
               borderRadius="18px"
               marginTop="40px"
-              onClick={() => handleCardClick(restaurant)}
+              onClick={() => {navigate(`/restaurants/${restaurant.name}`)}}
             >
               <Card
                 display="flex"

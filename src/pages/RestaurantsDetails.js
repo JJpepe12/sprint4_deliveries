@@ -18,13 +18,21 @@ import { FaStar } from "react-icons/fa";
 import CarruselCategory from "../components/carruselCategory/CarruselCategory";
 import { saladRestor } from "../utils/data";
 import { useDispatch, useSelector } from 'react-redux';
-import { actionGetrestaurantesAsync } from '../redux/actions/restaurantAction';
+import { actionGetDishesAsync } from '../redux/actions/dishesAction';
 import { auth } from '../firebase/firebaseConfig';
+import { useNavigate, useParams } from "react-router-dom";
 const RestaurantsDetails = () => {
-  const store = useSelector(state => state.restaurantStore);
-  
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const dishes = useSelector(state => state.dishesStore.dishes);
+  console.log(dishes)
+  const {name} = useParams();
+  // const getDocsDetailsProducts = () => {
+  //   const dataDishes = dishes.products.slice();
+  //   const descriptionDishes = dataDishes.find(dish =>dish.name === name )
+  // }
+  const getDocsDetailsRestaurant = 
   return (
-    
     <>
       <ChakraProvider>
         {/* Logo restaurant */}
