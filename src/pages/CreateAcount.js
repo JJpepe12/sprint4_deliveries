@@ -34,15 +34,17 @@ const CreateAccount = () => {
 
   
   const handleSubmit = async (values ) => {
-   
     console.log(values);
+  
   
     // Enviar la imagen a Cloudinary utilizando fileUpLoad
     const avatar = await fileUpLoad(values.avatar[0]);
+   
     const newUser = {
       ...values,
       avatar: avatar
-    }
+     
+    } 
     console.log(newUser);
     Swal.fire({
       icon: 'success',
@@ -65,7 +67,6 @@ const CreateAccount = () => {
 
   return (
     <ChakraProvider>
-      
       <Box
         d="flex"
         alignItems="center"
@@ -77,26 +78,26 @@ const CreateAccount = () => {
           Create account
         </Text>
         <Formik
-          initialValues={{ name: '', email: '', password: '', avatar: "" }}
+          initialValues={{ name: "", email: "", password: "", avatar: "" }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
           <Form
             style={{
-              marginTop: '20px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '10px',
+              marginTop: "20px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
             }}
           >
             <Box borderBottom="1px solid gray">
               <Text color="gray"> Name</Text>
-              <Field
-                type="text"
+              <Field type="text" name="name" placeholder="Robert Foxy" />
+              <ErrorMessage
                 name="name"
-                placeholder="Robert Foxy"
+                component="div"
+                style={{ color: "red" }}
               />
-              <ErrorMessage name="name" component="div" style={{ color: 'red' }} />
             </Box>
 
             <Box borderBottom="1px solid gray">
@@ -106,31 +107,68 @@ const CreateAccount = () => {
                 name="email"
                 placeholder="example@gmail.com"
               />
-              <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
+              <ErrorMessage
+                name="email"
+                component="div"
+                style={{ color: "red" }}
+              />
             </Box>
 
             <Box borderBottom="1px solid gray">
               <Text color="gray">Password</Text>
-              <Field
-                type="password"
+              <Field type="password" name="password" placeholder="*********" />
+              <ErrorMessage
                 name="password"
-                placeholder="*********"
+                component="div"
+                style={{ color: "red" }}
               />
-              <ErrorMessage name="password" component="div" style={{ color: 'red' }} />
             </Box>
+
+            {/* <Box borderBottom="1px solid gray">
+              <Text color="gray">Avatar</Text>
+              <Field
+                type="file"
+                name="avatar"
+                style={{ color: "gray", fontSize: "13px" }}
+              />
+              <ErrorMessage
+                name="avatar"
+                component="div"
+                style={{ color: "red" }}
+              />
+            </Box> */}
 
             <Box borderBottom="1px solid gray">
               <Text color="gray">Avatar</Text>
               <Field
                 type="file"
                 name="avatar"
-                style={{ color: 'gray', fontSize: "13px"}}
-                
+                style={{ color: "gray", fontSize: "13px" }}
+              >
+                {({ field, form }) => (
+                  <input
+                    type="file"
+                    onChange={(event) => {
+                      // Obtener los archivos seleccionados y actualizar el valor en Formik
+                      form.setFieldValue(field.name, event.target.files);
+                    }}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="avatar"
+                component="div"
+                style={{ color: "red" }}
               />
-              <ErrorMessage name="avatar" component="div" style={{ color: 'red' }} />
             </Box>
 
-            <Button type="submit" bg="#FFE031" height="44px" borderRadius="10px" marginTop="10px">
+            <Button
+              type="submit"
+              bg="#FFE031"
+              height="44px"
+              borderRadius="10px"
+              marginTop="10px"
+            >
               Sign In
             </Button>
           </Form>
