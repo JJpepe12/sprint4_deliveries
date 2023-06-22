@@ -5,7 +5,7 @@ import { dishesTypes } from "../types/dishesTypes";
 const collectionName = 'products';
 
 
-export const actionGetRestaurantAsync = () => {
+export const actionGetDishAsync = () => {
     return async (dispatch) => {
         const dishesCollection = collection(database, collectionName);
         const querySnapshot = await getDocs(dishesCollection);

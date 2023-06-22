@@ -47,15 +47,15 @@ const Home = () => {
     dispatch(actionGetRestaurantAsync());
   }, [dispatch]);
 
-  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  // const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
-  const handleCardClick = (restaurant) => {
-    console.log("Go details")
-    sessionStorage.setItem('infoRestaurant', JSON.stringify(restaurant));
-    Swal.fire(`Restaurante seleccionada: ${restaurant.name}`);
-    navigate(`/details/${restaurant.id}`);
-    setSelectedRestaurant(restaurant);
-  };
+  // const handleCardClick = (restaurant) => {
+  //   console.log("Go details")
+  //   sessionStorage.setItem('infoRestaurant', JSON.stringify(restaurant));
+  //   Swal.fire(`Restaurante seleccionada: ${restaurant.name}`);
+  //   navigate(`/details/${restaurant.id}`);
+  //   setSelectedRestaurant(restaurant);
+  // };
   return (
 
     <>
@@ -121,7 +121,7 @@ const Home = () => {
               p={2}
               borderRadius="18px"
               marginTop="40px"
-              onClick={() => {navigate(`/restaurants/${restaurant.name}`)}}
+              onClick={() => {navigate(`/detailsRestaurant/${restaurant.name}`)}}
             >
               <Card
                 display="flex"
