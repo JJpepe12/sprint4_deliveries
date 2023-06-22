@@ -73,6 +73,7 @@ const RestaurantsDetails = () => {
   const home = () => {
     navigate('/home');
   }
+
   return (
     <>
       <ChakraProvider>

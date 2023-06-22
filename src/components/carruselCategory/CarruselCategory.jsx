@@ -11,6 +11,7 @@ import iconCoffe from "../../assets/icon/taza-de-cafe.png";
 import { useDispatch } from 'react-redux';
 import { actionFilterRestaurantAsync, actionGetRestaurantAsync } from '../../redux/actions/restaurantAction';
 import { categories } from '../../services/data';
+import { actionFilterDishAsync, actionGetDishAsync } from '../../redux/actions/dishesAction';
 
 // const categories = [
 //     {
@@ -56,6 +57,7 @@ const CarruselCategory = () => {
   const onFiltered = (searchValue) => {
     const searchParam = "category";
     dispatch(actionFilterRestaurantAsync(searchParam, searchValue));
+    dispatch(actionFilterDishAsync(searchParam, searchValue));
   };
   return (
 
@@ -74,6 +76,7 @@ const CarruselCategory = () => {
             _hover={{ transform: "scale(1.1)" }}
             onClick={() => {
               dispatch(actionGetRestaurantAsync());
+              dispatch(actionGetDishAsync());
             }}> All </Button>
         </Box>
         {categories.map((category) => (
