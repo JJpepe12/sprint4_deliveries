@@ -127,13 +127,13 @@
 //   };
 // };
 
-import { userTypes } from "../types/userTypes"
-import { createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    updateProfile, signInWithPopup
-  } from "firebase/auth";
-  import { auth } from "../../firebase/firebaseConfig";
+// import { userTypes } from "../types/userTypes"
+// import { createUserWithEmailAndPassword,
+//     signInWithEmailAndPassword,
+//     signOut,
+//     updateProfile, signInWithPopup
+//   } from "firebase/auth";
+//   import { auth } from "../../firebase/firebaseConfig";
 
 //   export const updateUssersAction = (id) => {
 //     return {
@@ -154,8 +154,44 @@ import { createUserWithEmailAndPassword,
 //       payload: id
 //   }
 // }
-export const listUssersAction = () => {
+// export const listUssersAction = () => {
+//   return {
+//       type: userTypes.USERS_GET,
+//   }
+// }
+import {
+  createUserWithEmailAndPassword
+} from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
+import { userTypes } from "../types/userTypes";
+
+export const registerActionAsync = ({ email, password, name, avatar }) => {
+  return async (dispatch) => {
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+        console.log(user);
+      dispatch(registerActionSync({ email, name, avatar }, null));
+    } catch (error) {
+      console.log(error);
+      dispatch(
+        registerActionSync({}, { code: error.code, message: error.message })
+      );
+    }
+  };
+};
+
+
+const registerActionSync = (newUser, error) => {
   return {
-      type: userTypes.USERS_GET,
-  }
-}
+    type: userTypes.CREATE_USER,
+    payload: {
+      user: newUser,
+      error: error,
+    },
+  };
+};

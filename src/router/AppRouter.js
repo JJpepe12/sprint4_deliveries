@@ -11,6 +11,8 @@ import NotFound from "../pages/NotFound";
 import RestaurantsDetails from "../pages/RestaurantsDetails";
 import FoodPlate from "../pages/FoodPlate";
 import Search from "../pages/Search";
+import CreateAcount from "../pages/CreateAcount";
+import GlobalStyles from "../components/styles/GlobalStyle";
 // import { onAuthStateChanged } from "firebase/auth";
 // import { auth } from "../firebase/firebaseConfig";
 // import { useDispatch, useSelector } from "react-redux";
@@ -60,9 +62,10 @@ return (
             <Route index element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="home" element={<Home />} />
-            <Route path={"details"} element={<RestaurantsDetails/>}/>
-            <Route path={"foodplate"} element={<FoodPlate />}/> 
-            <Route path={"search"} element={<Search />}/> 
+            <Route path="details" element={<RestaurantsDetails/>}/>
+            <Route path="foodplate" element={<FoodPlate />}/> 
+            <Route path="search" element={<Search />}/> 
+            <Route path="createacount" element={<CreateAcount />}/> 
           </Route>
           <Route element={<PrivateRouter />}>
             
@@ -76,7 +79,10 @@ return (
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
+    <GlobalStyles />
   </ChakraProvider>
+ 
+  
 );
 };
 
