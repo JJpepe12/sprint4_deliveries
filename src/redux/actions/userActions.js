@@ -127,13 +127,13 @@
 //   };
 // };
 
-import { userTypes } from "../types/userTypes"
-import { createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    updateProfile, signInWithPopup
-  } from "firebase/auth";
-  import { auth } from "../../firebase/firebaseConfig";
+// import { userTypes } from "../types/userTypes"
+// import { createUserWithEmailAndPassword,
+//     signInWithEmailAndPassword,
+//     signOut,
+//     updateProfile, signInWithPopup
+//   } from "firebase/auth";
+//   import { auth } from "../../firebase/firebaseConfig";
 
 //   export const updateUssersAction = (id) => {
 //     return {
@@ -154,8 +154,74 @@ import { createUserWithEmailAndPassword,
 //       payload: id
 //   }
 // }
-export const listUssersAction = () => {
+// export const listUssersAction = () => {
+//   return {
+//       type: userTypes.USERS_GET,
+//   }
+// }
+import {
+  createUserWithEmailAndPassword, updateProfile, signOut
+} from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
+import { userTypes } from "../types/userTypes";
+
+export const registerActionAsync = ({ email, password, name, avatar }) => {
+  return async (dispatch) => {
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await updateProfile (auth.currentUser,{
+        displayName: name,
+        photoURL :avatar,
+      });
+      const { accessToken } = user.auth.currentUser;
+        console.log(user);
+      
+      dispatch(registerActionSync({ email, name, avatar, accessToken }, null));
+    } catch (error) {
+      console.log(error);
+      dispatch(
+        registerActionSync({}, { code: error.code, message: error.message })
+      );
+    }
+  };
+};
+
+
+const registerActionSync = (newUser, error) => {
   return {
-      type: userTypes.USERS_GET,
-  }
-}
+    type: userTypes.USERS_CREATE,
+    payload: {
+      user: newUser,
+      error: error,
+    },
+  };
+};
+
+export const logoutActionAsync = () => {
+  return async (dispatch) => {
+    let errors = null;
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+      errors = {
+        error: true,
+        code: error.code,
+        message: error.message,
+      };
+    } finally {
+      dispatch(logoutActionSync(errors));
+    }
+  };
+};
+
+const logoutActionSync = (error) => {
+  return {
+    type: userTypes.LOGOUT_USER,
+    payload: error,
+  };
+};

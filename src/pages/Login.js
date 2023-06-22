@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc"
 
 const Login = () => {
+
+  
   return (
     <section>
       <Stack alignItems="center" p={5}>
@@ -32,7 +34,7 @@ const Login = () => {
             _hover={{ cursor: "pointer" }}
           >
             <Text fontSize="md" fontWeight="bold" color="blue.500" >
-              <Link to="/register">Regístrate aquí</Link>
+              <Link to="/createacount">Regístrate aquí</Link>
             </Text>
           </Stack>
         </div>
