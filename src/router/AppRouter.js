@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import Register from "../pages/Register";
 import PublicRouter from "./PublicRouter";
 import PrivateRouter from "./PrivateRouter";
 // import Layout from "../components/Layout";
@@ -11,6 +10,9 @@ import NotFound from "../pages/NotFound";
 import RestaurantsDetails from "../pages/RestaurantsDetails";
 import FoodPlate from "../pages/FoodPlate";
 import Search from "../pages/Search";
+
+import GlobalStyles from "../components/styles/GlobalStyle";
+import CreateAccount from "../pages/CreateAcount";
 // import { onAuthStateChanged } from "firebase/auth";
 // import { auth } from "../firebase/firebaseConfig";
 // import { useDispatch, useSelector } from "react-redux";
@@ -58,11 +60,12 @@ return (
         <Route path="/">
           <Route element={<PublicRouter />}>
             <Route index element={<Login />} />
-            <Route path="register" element={<Register />} />
+            <Route path="createacount" element={<CreateAccount />}/> 
             <Route path="home" element={<Home />} />
-            <Route path={"details"} element={<RestaurantsDetails/>}/>
-            <Route path={"foodplate"} element={<FoodPlate />}/> 
-            <Route path={"search"} element={<Search />}/> 
+            <Route path="details" element={<RestaurantsDetails/>}/>
+            <Route path="foodplate" element={<FoodPlate />}/> 
+            <Route path="search" element={<Search />}/> 
+            
           </Route>
           <Route element={<PrivateRouter />}>
             
@@ -76,7 +79,10 @@ return (
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
+    <GlobalStyles />
   </ChakraProvider>
+ 
+  
 );
 };
 

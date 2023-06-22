@@ -48,8 +48,8 @@ const Login = () => {
             ml={5}
             _hover={{ cursor: "pointer" }}
           >
-            <Text fontSize="md" fontWeight="bold" color="blue.500">
-              <Link to="/register">Regístrate aquí</Link>
+            <Text fontSize="md" fontWeight="bold" color="blue.500" >
+              <Link to="/createaccount">Regístrate aquí</Link>
             </Text>
           </Stack>
         </div>
