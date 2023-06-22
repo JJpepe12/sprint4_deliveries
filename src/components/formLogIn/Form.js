@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+// import { login, logout} from '../redux/actions/authActions';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { ChakraProvider } from '@chakra-ui/react'
 import { UnlockIcon } from '@chakra-ui/icons'
-// import { UserContext } from "../../Routes/AppRouter"
-// import { get } from "../../services/usuarioService";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import {
     FormControl,
     FormLabel,
@@ -21,6 +21,15 @@ import {
     AiOutlineUser
 } from "react-icons/ai"
 
+
+// const LoginEmail = () => {
+//     const dispatch = useDispatch();
+
+//     const handleLogin = (e) => {
+//     e.preventDefault();
+//     dispatch(LoginEmail(email, password));
+//     }
+// }
 
 const validationSchema = Yup.object().shape({
     username: Yup.string()
@@ -43,6 +52,7 @@ const Form = () => {
         validationSchema,
 
 
+
             // Swal.fire(
             //     'excelente',
             //     `${foundUser.name} Bienvenido!!`,
@@ -51,25 +61,16 @@ const Form = () => {
             // )
             // sessionStorage.setItem('idVuelo', JSON.stringify(resultado));
             // navigate("Home")
-
-
-    //       } else {
-    //         console.log("La información ingresada no es válida");
-    //         console.log("valores", values);
-    //         Swal.fire(
-    //             'upps',
-    //             'Usuario no encontrado, intenta de nuevo!',
-    //             'error'
-    //         )
-    //       }
+    //       } 
     //       setSubmitting(false);
     //     },
     //     enableReinitialize: true
       });
 
+      //form onSubmit={handleLogin}
     return (
         <ChakraProvider>
-            <form  onSubmit={formik.handleSubmit} position="absolute">
+            <form  position="absolute">
                 <Flex  overflow="wrap" flexWrap="wrap" alignContent="start" flexDirection="column" spacing={10}>
                     <FormControl >
                         <FormLabel widht="90%" color={'white'} fontSize={"small"}>Disfruta de la mejor pizza creada para las personas amantes del código </FormLabel>

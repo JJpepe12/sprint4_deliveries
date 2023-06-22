@@ -10,6 +10,8 @@ import { loginGoogle } from "../redux/actions/authActions";
 const Login = () => {
   const dispatch = useDispatch();
 
+
+
   const handleLoginGoogle = () => {
     dispatch(loginGoogle());
     console.log("Ingresaste con Google")
@@ -24,7 +26,9 @@ const Login = () => {
           Login or create an account with your phone number to start ordering
         </Text>
         {/* <Form handleUser={handleUser} /> */}
+
         <Form />
+        
         <h2>Restablecer contraseña</h2>
         <HStack my={5}>
           <Text>Inicia sesión con</Text>
