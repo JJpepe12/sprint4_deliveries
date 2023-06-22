@@ -12,9 +12,8 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import Logo from "../assets/restaurant/Logo1rest.png";
-import LettersLogo from "../assets/restaurant/Logorest.png";
-import restaurant1 from "../assets/restaurant/rest1.png";
+import Logo from "../assets/restaurant/PardesLogo.svg";
+import restaurant1 from "../assets/restaurant/rest1.svg";
 import { FaStar } from "react-icons/fa";
 import CarruselCategory from "../components/carruselCategory/CarruselCategory";
 import { saladRestor } from "../utils/data";
@@ -29,13 +28,11 @@ const RestaurantsDetails = () => {
           <Box
             display="flex"
             alignItems="center"
-            marginLeft="116px"
+            marginLeft="80px"
             marginTop="40px"
           >
-            <Image src={Logo} alt="logo restor" w="45px" />
-            <Box display="flex" flexDirection="column" p={2}>
-              <Image src={LettersLogo} alt="logo letter" />
-            </Box>
+            <Image src={Logo} alt="logo restaurant" w="150px" />
+
           </Box>
         </Box>
 
@@ -58,7 +55,7 @@ const RestaurantsDetails = () => {
             <Image
               objectFit="cover"
               width="145px"
-              height="136px"
+              height="120px"
               src={restaurant1}
               alt="restaurant1"
               borderRadius="10px"
