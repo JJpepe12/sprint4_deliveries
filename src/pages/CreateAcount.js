@@ -4,7 +4,14 @@ import { ChakraProvider } from '@chakra-ui/provider';
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import fileUpLoad from '../components/services/fileUpLoad'; 
+import fileUpLoad from '../services/fileUpload';
+import { useDispatch } from 'react-redux';
+import { registerActionAsync } from '../redux/actions/userActions';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
+
+
 
 
   // Define the validation schema using Yup
@@ -12,48 +19,70 @@ import * as Yup from 'yup';
     name: Yup.string().required('Por favor ingrese su nombre'),
     email: Yup.string().email('Debes ingresar un email').required('Este campo es obligatorio'),
     password: Yup.string().required('Password is required')
-    .min(5, "La contraseña debe contener al menos 5 caracteres.")
+    .min(3, "La contraseña debe contener al menos 3 caracteres.")
     .max(8, "La contraseña no puede contener más de 8 caracteres"),
     
-    photo: Yup.mixed()
+    avatar: Yup.mixed()
     .required('Por favor ingrese una imagen'),
   });
 
 
 const CreateAccount = () => {
 
-  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   
-  // Handle form submission
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values ) => {
+   
     console.log(values);
+  
+    // Enviar la imagen a Cloudinary utilizando fileUpLoad
+    const avatar = await fileUpLoad(values.avatar[0]);
+    const newUser = {
+      ...values,
+      avatar: avatar
+    }
+    console.log(newUser);
+    Swal.fire({
+      icon: 'success',
+      title: 'Usuario creado exitosamente',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(() => {
+      navigate('/');
+    }).catch((error) => {
+      // Manejar errores en caso de que ocurra un problema durante el registro del usuario
+      console.log(error);
+    });
+  
+    dispatch(registerActionAsync(newUser));
+    
   };
+  
+  
 
 
   return (
     <ChakraProvider>
+      
       <Box
         d="flex"
-        justifyContent="left"
         alignItems="center"
         flexDirection="column"
-        h="100vh"
-        p={20}
+        p={80}
         paddingTop="100px"
       >
         <Text fontSize="20px" fontWeight="bold">
           Create account
         </Text>
         <Formik
-          initialValues={{ name: '', email: '', password: '', photo: null }}
+          initialValues={{ name: '', email: '', password: '', avatar: "" }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
           <Form
             style={{
-              width: '100%',
-              maxWidth: '400px',
               marginTop: '20px',
               display: 'flex',
               flexDirection: 'column',
@@ -91,13 +120,14 @@ const CreateAccount = () => {
             </Box>
 
             <Box borderBottom="1px solid gray">
-              <Text color="gray">Photo</Text>
+              <Text color="gray">Avatar</Text>
               <Field
                 type="file"
-                name="photo"
+                name="avatar"
                 style={{ color: 'gray', fontSize: "13px"}}
+                
               />
-              <ErrorMessage name="photo" component="div" style={{ color: 'red' }} />
+              <ErrorMessage name="avatar" component="div" style={{ color: 'red' }} />
             </Box>
 
             <Button type="submit" bg="#FFE031" height="44px" borderRadius="10px" marginTop="10px">

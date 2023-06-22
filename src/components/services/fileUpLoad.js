@@ -1,12 +1,13 @@
 const fileUpLoad = async (image) => {
     const cloudName = "derrwh2fo";
-    const presetName =  "delivery-Food-Sprint4";
+    const presetName =  "food-delivery-rappi";
     const urlCloudinary = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
   
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", presetName);
     formData.append("cloud_name", cloudName);
+    
   
     try {
       const response = await fetch(urlCloudinary, {
