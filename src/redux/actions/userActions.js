@@ -131,10 +131,10 @@ import { userTypes } from "../types/userTypes"
 import { createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
-    updateProfile, signInWithPopup
+    updateProfile, signInWithPopup, GoogleAuthProvider
   } from "firebase/auth";
   import { auth } from "../../firebase/firebaseConfig";
-
+import {setLoading,  setError, singInsucces, singOutsucces } from "../slicer/userSlicer"
 //   export const updateUssersAction = (id) => {
 //     return {
 //         type: userTypes.USERS_UPDATE,
@@ -159,3 +159,36 @@ export const listUssersAction = () => {
       type: userTypes.USERS_GET,
   }
 }
+export const loginUssersAction = (email , password) => {
+  return async (dispatch) => {
+    try{
+      dispatch (setLoading(true));
+      const userCredential = await signInWithEmailAndPassword(auth, email, password)
+      const user = userCredential.user
+      console.log("user", user)
+      dispatch (singInsucces(user));
+      dispatch (setLoading(false));
+    } catch (error){
+      console.log("error", error)
+      // dispatch (setError(error.message));
+      dispatch (setLoading(false));
+    };
+      // type: userTypes.USERS_LOGIN,
+  };
+};
+
+export const logoutUssersAction = (email , password) => {
+  return async (dispatch) => {
+    try{
+      dispatch (setLoading(true));
+      await signOut (auth)
+      dispatch (singOutsucces());
+      dispatch (setLoading(false));
+    } catch (error){
+      console.log("error", error)
+      // dispatch (setError(error.message));
+      dispatch (setLoading(false));
+    };
+      // type: userTypes.USERS_LOGIN,
+  };
+};
