@@ -10,8 +10,6 @@ import { loginGoogle } from "../redux/actions/authActions";
 const Login = () => {
   const dispatch = useDispatch();
 
-
-
   const handleLoginGoogle = () => {
     dispatch(loginGoogle());
     console.log("Ingresaste con Google")
