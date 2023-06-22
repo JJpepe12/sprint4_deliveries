@@ -60,7 +60,8 @@ return (
             <Route index element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="home" element={<Home />} />
-            <Route path={"details"} element={<RestaurantsDetails/>}/>
+            {/* <Route path={"details"} element={<RestaurantsDetails/>}/> */}
+            <Route path="details/:pizzaid" element={<RestaurantsDetails />} />
             <Route path={"foodplate"} element={<FoodPlate />}/> 
             <Route path={"search"} element={<Search />}/> 
           </Route>

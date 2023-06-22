@@ -17,9 +17,14 @@ import restaurant1 from "../assets/restaurant/rest1.svg";
 import { FaStar } from "react-icons/fa";
 import CarruselCategory from "../components/carruselCategory/CarruselCategory";
 import { saladRestor } from "../utils/data";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { actionGetrestaurantesAsync } from '../redux/actions/restaurantAction';
+import { auth } from '../firebase/firebaseConfig';
 const RestaurantsDetails = () => {
+  const store = useSelector(state => state.restaurantStore);
+  
   return (
+    
     <>
       <ChakraProvider>
         {/* Logo restaurant */}
