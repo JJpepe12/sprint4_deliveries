@@ -12,7 +12,7 @@ import FoodPlate from "../pages/FoodPlate";
 import Search from "../pages/Search";
 
 import GlobalStyles from "../components/styles/GlobalStyle";
-import CreateAccount from "../pages/CreateAcount";
+import CreateAccount from "../pages/CreateAccount";
 // import { onAuthStateChanged } from "firebase/auth";
 // import { auth } from "../firebase/firebaseConfig";
 // import { useDispatch, useSelector } from "react-redux";

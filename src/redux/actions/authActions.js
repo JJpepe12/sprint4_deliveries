@@ -30,6 +30,7 @@ export const loginGoogle = () => {
         try {
             dispatch(setLoading(true));
             const userCredential = await signInWithPopup(auth, provider);
+            console.log("el usuario es ", userCredential)
             dispatch(setLoading(false));
             dispatch(setUser(userCredential.user));
         }catch(error){
