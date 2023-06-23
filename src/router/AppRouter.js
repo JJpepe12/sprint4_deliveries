@@ -62,7 +62,8 @@ return (
             <Route path="home" element={<Home />} />
             {/* <Route path={"details"} element={<RestaurantsDetails/>}/> */}
             <Route path="/detailsRestaurant/:name" element={<RestaurantsDetails />} />
-            <Route path={"foodplate"} element={<FoodPlate />}/> 
+            {/* <Route path={"foodplate"} element={<FoodPlate />}/>  */}
+            <Route path="/foodplate/:name" element={<FoodPlate />}/>
             <Route path={"search"} element={<Search />}/> 
           </Route>
           <Route element={<PrivateRouter />}>

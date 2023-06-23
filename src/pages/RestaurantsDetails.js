@@ -48,7 +48,7 @@ const RestaurantsDetails = () => {
   const restaurant = useSelector((store) => store.restaurantStore);
   const { dishes } = useSelector((store) => store.dishesStore);
   console.log(dishes)
-  // const { food } = useSelector((store) => store.foodStore);
+
 
   const infoRestaurant = () => {
     // const dataDishes = dishes.products.slice();
@@ -77,9 +77,8 @@ const RestaurantsDetails = () => {
   return (
     <>
       <ChakraProvider>
-        {/* Logo restaurant */}
-        
-        {/* <Box display="flex" alignItems="left" flexDirection="row" p={6}>
+        {restaurantInfo ? (
+        <Box display="flex" alignItems="left" flexDirection="row" p={6}>
           <Icon as={ChevronLeftIcon} fontSize="2rem" />
           <Box
             display="flex"
@@ -87,10 +86,12 @@ const RestaurantsDetails = () => {
             marginLeft="80px"
             marginTop="40px"
           >
-            <Image src={Logo} alt="logo restaurant" w="150px" />
+            <Image src={restaurantInfo.logo} alt="logo restaurant" w="150px" />
 
           </Box>
-        </Box> */}
+        </Box>
+                ) : (<text> Restaurante no encontrado</text>)
+              }
         <Box
           display="flex"
           alignItems="center"
@@ -102,13 +103,14 @@ const RestaurantsDetails = () => {
           padding={6}
         >
           {restaurantInfo ? (
-            <Card display="flex" flexDirection="row" w="100%" shadow="0" >
+            <Card display="flex" flexDirection="row" w="100%" shadow="0" 
+           >
               <Image
                 objectFit="cover"
                 width="145px"
                 height="120px"
                 src={restaurantInfo.img}
-                alt="restaurant1"
+                alt="restaurantlogo"
                 borderRadius="10px"
 
 
@@ -123,8 +125,6 @@ const RestaurantsDetails = () => {
                   <Text py="2" fontSize="10px" letterSpacing="-0.3px">
                     {restaurantInfo.description}
                   </Text>
-
-                  {/* Agregar rating de estrellas */}
                   <Box
                     display="flex"
                     flexDirection="row"
@@ -150,14 +150,12 @@ const RestaurantsDetails = () => {
                 </CardBody>
               </Stack>
             </Card>
-          ) : (<text> Restaurante no encontrado</text>)
-          }
+             ) : (<text> Restaurante no encontrado</text>)
+            }
         </Box>
         <Stack paddingTop="30px">
           <CarruselCategory />
         </Stack>
-
-        {/* Mapeo de los datos de saladRestor */}
         <Grid
           templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
           gap={4}
@@ -166,7 +164,8 @@ const RestaurantsDetails = () => {
         >
           {filterDishes && filterDishes.length ?
             (filterDishes.map((item) => (
-              <Card key={item.id}>
+              <Card key={item.id}
+                onClick={() => { navigate(`/foodplate/${item.name}`) }}>
                 <Image borderRadius="10px" src={item.img} alt={item.name} />
                 <CardBody>
                   <Text fontSize="14px">{item.name}</Text>
