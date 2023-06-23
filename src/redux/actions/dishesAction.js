@@ -63,3 +63,28 @@ const actionFilterDishSync = (dish) => {
         },
     };
 };
+// ----------------------- search ------------------
+export const actionFilterAsync = (searchParam) => {
+    return async (dispatch) => {
+      const foodCollection = collection(database, collectionName);
+      const querySnapshot = await getDocs(foodCollection);
+      const dishes = [];
+      try {
+        querySnapshot.forEach((doc) => {
+            dishes.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+    
+        const filteredDish = dishes.filter((item) =>
+  item.name && item.name.toLowerCase().includes(searchParam.toLowerCase())
+);
+dispatch(actionFilterDishSync(filteredDish));
+      } catch (error) {
+        console.error(error);
+        dispatch(actionFilterDishSync([]));
+      }
+    };
+  };
+  
