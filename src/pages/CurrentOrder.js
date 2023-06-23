@@ -1,5 +1,4 @@
 import React from 'react'
-import { loginGoogle } from '../redux/actions/authActions';
 import { Button, ChakraProvider, Icon, Box, Text} from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import DeliveryTime from '../assets/DeliveryTime.svg'

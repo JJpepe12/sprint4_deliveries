@@ -9,7 +9,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import salad_2 from "../assets/platosrest1/salad(2).svg";
 import time from "../assets/icon/time.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
