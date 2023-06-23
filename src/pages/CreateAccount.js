@@ -52,7 +52,7 @@ const CreateAccount = () => {
       showConfirmButton: false,
       timer: 1500
     }).then(() => {
-      // navigate('/');
+      navigate('/');
     }).catch((error) => {
       // Manejar errores en caso de que ocurra un problema durante el registro del usuario
       console.log(error);
@@ -124,19 +124,6 @@ const CreateAccount = () => {
               />
             </Box>
 
-            {/* <Box borderBottom="1px solid gray">
-              <Text color="gray">Avatar</Text>
-              <Field
-                type="file"
-                name="avatar"
-                style={{ color: "gray", fontSize: "13px" }}
-              />
-              <ErrorMessage
-                name="avatar"
-                component="div"
-                style={{ color: "red" }}
-              />
-            </Box> */}
 
             <Box borderBottom="1px solid gray">
               <Text color="gray">Avatar</Text>

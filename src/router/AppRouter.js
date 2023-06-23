@@ -10,9 +10,9 @@ import NotFound from "../pages/NotFound";
 import RestaurantsDetails from "../pages/RestaurantsDetails";
 import FoodPlate from "../pages/FoodPlate";
 import Search from "../pages/Search";
-
 import GlobalStyles from "../components/styles/GlobalStyle";
 import CreateAccount from "../pages/CreateAccount";
+import UsuarioProfile from "../pages/UsuarioProfile";
 // import { onAuthStateChanged } from "firebase/auth";
 // import { auth } from "../firebase/firebaseConfig";
 // import { useDispatch, useSelector } from "react-redux";
@@ -60,14 +60,16 @@ return (
         <Route path="/">
           <Route element={<PublicRouter />}>
             <Route index element={<Login />} />
-            <Route path="createacount" element={<CreateAccount />}/> 
+            <Route path="createaccount" element={<CreateAccount />}/> 
             <Route path="home" element={<Home />} />
             <Route path="details" element={<RestaurantsDetails/>}/>
             <Route path="foodplate" element={<FoodPlate />}/> 
             <Route path="search" element={<Search />}/> 
-            
+            <Route path="profile" element={<UsuarioProfile />}/> 
           </Route>
           <Route element={<PrivateRouter />}>
+         
+          
             
             {/* <Route path="details" element={<Home />} />
             <Route path="order" element={<Home />} />
