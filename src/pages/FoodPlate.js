@@ -19,8 +19,8 @@ const FoodPlate = () => {
   const [tomatoChecked, setTomatoChecked] = useState(false);
   const [lettuceChecked, setLettuceChecked] = useState(false);
   const [sauceChecked, setSauceChecked] = useState(false);
-
   const [quantity, setQuantity] = useState(0);
+  const [additionalCost, setAdditionalCost] = useState(0);
 
   const incrementQuantity = () => {
     setQuantity(quantity + 1);
@@ -63,7 +63,32 @@ const FoodPlate = () => {
   }, [dispatch])
 
   
+  const handleTomatoChecked = (checked) => {
+    setTomatoChecked(checked);
+    if (checked) {
+      setAdditionalCost(additionalCost + 2.50);
+    } else {
+      setAdditionalCost(additionalCost - 2.50);
+    }
+  };
 
+  const handleLettuceChecked = (checked) => {
+    setLettuceChecked(checked);
+    if (checked) {
+      setAdditionalCost(additionalCost + 1.50);
+    } else {
+      setAdditionalCost(additionalCost - 1.50);
+    }
+  };
+
+  const handleSauceChecked = (checked) => {
+    setSauceChecked(checked);
+    if (checked) {
+      setAdditionalCost(additionalCost + 3.00);
+    } else {
+      setAdditionalCost(additionalCost - 3.00);
+    }
+  };
   // const filterDishes = dishes.filter(item => item.restaurant === name);
   // console.log(filterDishes);
   return (
@@ -133,7 +158,7 @@ const FoodPlate = () => {
                   <Checkbox
                     colorScheme="#FFE031"
                     defaultChecked={tomatoChecked}
-                    onChange={() => setTomatoChecked(!tomatoChecked)}
+                    onChange={(e) => handleTomatoChecked(e.target.checked)}
                     isChecked={tomatoChecked}
                     iconColor={tomatoChecked ? "black" : "gray"}
                     bg={tomatoChecked ? "#FFE031" : "#F2F2F2"}
@@ -154,7 +179,7 @@ const FoodPlate = () => {
                   <Checkbox
                     colorScheme="#FFE031"
                     defaultChecked={lettuceChecked}
-                    onChange={() => setLettuceChecked(!lettuceChecked)}
+                    onChange={(e) => handleLettuceChecked(e.target.checked)}
                     isChecked={lettuceChecked}
                     iconColor={lettuceChecked ? "black" : "gray"}
                     bg={lettuceChecked ? "#FFE031" : "#F2F2F2"}
@@ -175,7 +200,7 @@ const FoodPlate = () => {
                   <Checkbox
                     colorScheme="#FFE031"
                     defaultChecked={sauceChecked}
-                    onChange={() => setSauceChecked(!sauceChecked)}
+                    onChange={(e) => handleSauceChecked(e.target.checked)}
                     isChecked={sauceChecked}
                     iconColor={sauceChecked ? "black" : "gray"}
                     bg={sauceChecked ? "#FFE031" : "#F2F2F2"}
@@ -221,7 +246,7 @@ const FoodPlate = () => {
                 gap="100px"  flexDirection="row"
                 justifyContent="space-between" p={8}>
                 <Text>Add</Text>  
-                <Text>$ 14.00</Text>
+                <Text>$ {dishInfo.price * quantity + additionalCost}</Text>
                 </Box>
                 </Button>
             </Box>
