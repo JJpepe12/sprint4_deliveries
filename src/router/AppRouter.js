@@ -20,6 +20,7 @@ import CurrentOrder from "../pages/CurrentOrder";
 import Location from "../pages/Location";
 import OrderAccepted from "../pages/OrderAccepted";
 
+
 const AppRouter = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const dispatch = useDispatch();

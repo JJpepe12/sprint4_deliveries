@@ -110,6 +110,8 @@ const FoodPlate = () => {
             src={dishInfo.img}
             alt="salad 2"
             borderRadius="10px"
+       
+           
           />
 
           <Stack spacing={4} marginTop={6} p={4}>
@@ -243,8 +245,8 @@ const FoodPlate = () => {
                 ></Button>
               </Button>
 
-
               <Button bg="#FFE031"  onClick={goToCurrent}>
+
                 <Box  display="flex"
                 alignItems="center"
                 gap="100px"  flexDirection="row"
