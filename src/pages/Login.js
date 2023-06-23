@@ -3,23 +3,38 @@ import logo from "../assets/logo.svg";
 import Form from "../components/formLogIn/Form";
 import { Button, HStack, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc"
+import { FcGoogle } from "react-icons/fc";
+import { useDispatch } from "react-redux";
+import { loginGoogle } from "../redux/actions/authActions";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const handleLoginGoogle = () => {
+    dispatch(loginGoogle());
+    console.log("Ingresaste con Google")
+  };
+
   return (
     <section>
       <Stack alignItems="center" p={5}>
         <img src={logo} alt="logo delivery" />
-        <Text fontSize="2rem">Sing in</Text>
+        <Text fontSize="2rem">Sign in</Text>
         <Text textAlign="center">
           Login or create an account with your phone number to start ordering
         </Text>
         {/* <Form handleUser={handleUser} /> */}
+
         <Form />
-        <h2> Restablecer contraseña </h2>
+        
+        <h2>Restablecer contraseña</h2>
         <HStack my={5}>
           <Text>Inicia sesión con</Text>
-          <Button bg="#FFE031" leftIcon={<FcGoogle />}>
+          <Button
+            bg="#FFE031"
+            leftIcon={<FcGoogle />}
+            onClick={handleLoginGoogle}
+          >
             Google
           </Button>
         </HStack>
@@ -32,7 +47,7 @@ const Login = () => {
             _hover={{ cursor: "pointer" }}
           >
             <Text fontSize="md" fontWeight="bold" color="blue.500" >
-              <Link to="/register">Regístrate aquí</Link>
+              <Link to="/createaccount">Regístrate aquí</Link>
             </Text>
           </Stack>
         </div>
@@ -42,6 +57,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 // import React from 'react';
 // import Button from "react-bootstrap/Button";
