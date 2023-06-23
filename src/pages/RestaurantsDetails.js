@@ -77,6 +77,7 @@ const RestaurantsDetails = () => {
   return (
     <>
       <ChakraProvider>
+      <Box display="flex" alignItems="left" flexDirection="row" p={9}>
         {restaurantInfo ? (
           <Box display="flex" alignItems="left" flexDirection="row" p={6}>
             <Icon as={ChevronLeftIcon} fontSize="2rem" onClick={goBack} cursor="pointer" />
@@ -92,6 +93,9 @@ const RestaurantsDetails = () => {
           </Box>
         ) : (<text> Restaurante no encontrado</text>)
         }
+        </Box>
+
+
         <Box
           display="flex"
           alignItems="center"
@@ -99,7 +103,7 @@ const RestaurantsDetails = () => {
           h="106px"
           p={2}
           borderRadius="18px"
-          marginTop="20px"
+          marginTop="60px"
           padding={6}
         >
           {restaurantInfo ? (
@@ -119,10 +123,10 @@ const RestaurantsDetails = () => {
                 }}
               />
 
-              <Stack>
-                <CardBody padding="13px" width="200px" paddingTop="1px">
-                  <Text size="md">{restaurantInfo.name}</Text>
-                  <Text py="2" fontSize="10px" letterSpacing="-0.3px">
+              <Stack display="flex">
+                <CardBody paddingTop="1px">
+                  <Text fontSize="22px">{restaurantInfo.name}</Text>
+                  <Text py="2" fontSize="13px" letterSpacing="-0.3px" > 
                     {restaurantInfo.description}
                   </Text>
                   <Box
@@ -153,20 +157,25 @@ const RestaurantsDetails = () => {
           ) : (<text> Restaurante no encontrado</text>)
           }
         </Box>
-        <Stack paddingTop="30px">
+
+        
+        <Stack paddingTop="90px">
           <CarruselCategory />
         </Stack>
-        <Grid
-          templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
+
+
+        <Box >
+        <Grid  display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center"
+          templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)"}}
           gap={4}
           paddingTop="30px"
-          p={6}
+          p={4}
         >
           {filterDishes && filterDishes.length ?
             (filterDishes.map((item) => (
-              <Card key={item.id}
+              <Card width="250px" display="flex"  key={item.id}
                 onClick={() => { navigate(`/foodplate/${item.name}`) }}>
-                <Image width=" 300px"
+                <Image width="250px"
                   height="150px"
                   object-fit= "contain"
                   borderRadius="10px" src={item.img} alt={item.name} />
@@ -178,6 +187,7 @@ const RestaurantsDetails = () => {
             ))) : (<> <text> restaurante sin servicio </text></>)
           }
         </Grid>
+        </Box>
       </ChakraProvider>
     </>
   );

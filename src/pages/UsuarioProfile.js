@@ -1,7 +1,21 @@
-import { Avatar, ChakraProvider, Stack } from '@chakra-ui/react'
+// import { Avatar, ChakraProvider, Stack } from '@chakra-ui/react'
 import React from 'react'
 
+
+
 const UsuarioProfile = () => {
+
+
+//   const navigate = useNavigate();
+//   const users = useSelector(state => state.userStore.users);
+//   const dispatch = useDispatch();
+
+// useEffect(() => {
+//     dispatch(actionGetUsertAsync());
+//   }, [dispatch]);
+
+//  {users.map((user) => (
+
   return (
     <>Profile</>
 //     <ChakraProvider>
