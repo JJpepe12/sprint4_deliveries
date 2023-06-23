@@ -8,9 +8,12 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import salad_2 from "../assets/platosrest1/salad(2).svg";
 import time from "../assets/icon/time.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { actionGetDishAsync } from "../redux/actions/dishesAction";
 
 const FoodPlate = () => {
   const [tomatoChecked, setTomatoChecked] = useState(false);
@@ -29,9 +32,42 @@ const FoodPlate = () => {
     }
   };
 
+  const dispatch = useDispatch();
+  const { name } = useParams();
+  console.log(name);
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   infoRestaurant()
+  // }, [])
+  useEffect(() => {
+    infoDish();
+  }, [name]);
+
+  const [dishInfo, setDishInfo] = useState();
+  const dish = useSelector((store) => store.dishesStore);
+  const dishes  = useSelector((store) => store.dishesStore);
+  console.log(dishes)
+
+
+  const infoDish = () => {
+    const dataDishes = dishes.dishes.slice();
+    // const dataRestaurant = restaurant.restaurants.slice();
+    console.log(dataDishes)
+    const getDishes = dataDishes.find(dish => dish.name === name);
+    setDishInfo(getDishes)
+  }
+
+  useEffect(() => {
+    dispatch(actionGetDishAsync());
+  }, [dispatch])
+
+  // const filterDishes = dishes.filter(item => item.restaurant === name);
+  // console.log(filterDishes);
   return (
     <>
       <ChakraProvider>
+      {dishInfo ? (
         <Card
           display="flex"
           flexDirection="column"
@@ -40,7 +76,7 @@ const FoodPlate = () => {
         >
           <Image
             objectFit="cover"
-            src={salad_2}
+            src={dishInfo.img}
             alt="salad 2"
             borderRadius="10px"
           />
@@ -53,7 +89,7 @@ const FoodPlate = () => {
                 flexDirection="row"
                 justifyContent="space-between"
               >
-                <Text fontSize="22px">Cesar salad without</Text>
+                <Text fontSize="22px">{dishInfo.name}</Text>
 
                 <Box
                   display="flex"
@@ -69,9 +105,7 @@ const FoodPlate = () => {
               </Box>
 
               <Text>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s,
+              {dishInfo.description}
               </Text>
             </Box>
 
@@ -188,6 +222,8 @@ const FoodPlate = () => {
             </Box>
           </Stack>
         </Card>
+        ) : (<text> Plato no encontrado</text>)
+      }
       </ChakraProvider>
     </>
   );
