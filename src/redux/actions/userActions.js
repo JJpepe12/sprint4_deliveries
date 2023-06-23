@@ -160,7 +160,7 @@
 //   }
 // }
 import {
-  createUserWithEmailAndPassword, updateProfile, signOut
+  createUserWithEmailAndPassword, updateProfile, signOut, signInWithEmailAndPassword
 } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
 import { userTypes } from "../types/userTypes";
@@ -223,5 +223,32 @@ const logoutActionSync = (error) => {
   return {
     type: userTypes.LOGOUT_USER,
     payload: error,
+  };
+};
+
+export const loginActionAsync = (email, password) => {
+  return async (dispatch) => {
+    try {
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+      const { displayName, accessToken, photoURL } = user.auth.currentUser;
+
+      const userLogged = {
+        email,
+        name: displayName,
+        avatar: photoURL,
+        accessToken,
+      };
+
+      dispatch(loginActionSync(userLogged));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const loginActionSync = (user) => {
+  return {
+    type: userTypes.USERS_GET,
+    payload: user,
   };
 };

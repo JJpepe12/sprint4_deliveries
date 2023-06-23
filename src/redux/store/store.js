@@ -7,7 +7,7 @@ import { dishesSlicer } from "../slicer/dishesSlicer";
 // import thunkMiddleware from "redux-thunk";
 
 const reducer = {
-    userStore: userSlicer,
+    user: userSlicer,
     restaurantStore: restaurantsSlicer,
     dishesStore: dishesSlicer,
     orderStore: orderSlicer

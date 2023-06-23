@@ -12,10 +12,12 @@ import * as Yup from 'yup';
 import { login } from '../redux/actions/authActions';
 
 const validationSchema = Yup.object().shape({
-  username: Yup.string()
+  username: Yup
+    .string()
+    .email("Debe ingresar un email")
     .min(3, 'El nombre de usuario debe tener al menos 3 caracteres')
     .max(15, 'El nombre de usuario no debe tener más de 15 caracteres')
-    .required('El nombre de usuario es obligatorio'),
+    .required('El correo es obligatorio'),
   password: Yup.string()
     .min(2, 'La contraseña debe tener al menos 2 caracteres')
     .required('La contraseña es obligatoria')
