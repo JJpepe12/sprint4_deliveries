@@ -60,7 +60,7 @@ return (
         <Route path="/">
           <Route element={<PublicRouter />}>
             <Route index element={<Login />} />
-            <Route path="createacount" element={<CreateAccount />}/> 
+            <Route path="createaccount" element={<CreateAccount />}/> 
             <Route path="home" element={<Home />} />
             {/* <Route path={"details"} element={<RestaurantsDetails/>}/> */}
             <Route path="/detailsRestaurant/:name" element={<RestaurantsDetails />} />
