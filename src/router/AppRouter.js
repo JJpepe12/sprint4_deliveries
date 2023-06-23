@@ -59,6 +59,7 @@ return (
           <Route element={<PublicRouter isAuthentication={isLoggedIn} />}>
             <Route index element={<Login />} />
             <Route path="createaccount" element={<CreateAccount />}/> 
+            {/* <Route path="profile" element={<UsuarioProfile />} /> */}
           </Route>
           <Route element={<PrivateRouter isAuthentication={isLoggedIn} />}>
             <Route path="home" element={<Home />} />

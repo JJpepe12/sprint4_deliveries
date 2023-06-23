@@ -170,7 +170,7 @@ const FoodPlate = () => {
                     bg={tomatoChecked ? "#FFE031" : "#F2F2F2"}
                     size="lg"
                   />
-                  <Text>{tomatoChecked ? "Tomato" : "Tomato"}</Text>
+                  <Text>{tomatoChecked ? "Adición 1" : "Adición 1"}</Text>
                 </Box>
                 <Text>${tomatoChecked ? "2.50" : "0.00"}</Text>
               </Box>
@@ -191,7 +191,7 @@ const FoodPlate = () => {
                     bg={lettuceChecked ? "#FFE031" : "#F2F2F2"}
                     size="lg"
                   />
-                  <Text>{lettuceChecked ? "Lettuce" : "Lettuce"}</Text>
+                  <Text>{lettuceChecked ? "Adición 2" : "Adición 2"}</Text>
                 </Box>
                 <Text>${lettuceChecked ? "1.50" : "0.00"}</Text>
               </Box>
@@ -212,7 +212,7 @@ const FoodPlate = () => {
                     bg={sauceChecked ? "#FFE031" : "#F2F2F2"}
                     size="lg"
                   />
-                  <Text>{sauceChecked ? "Sauce" : "Sauce"}</Text>
+                  <Text>{sauceChecked ? "Adición 3" : "Adición 3"}</Text>
                 </Box>
                 <Text>${sauceChecked ? "3.00" : "0.00"}</Text>
               </Box>

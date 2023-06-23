@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDocs, query, where } from "firebase/firestore"
+import { collection, getDocs, query, where } from "firebase/firestore"
 import {database} from '../../firebase/firebaseConfig';
 import { restaurantsTypes } from "../types/restaurantTypes";
 

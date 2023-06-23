@@ -1,5 +1,4 @@
 import React from 'react'
-import mariposa from "../assets/avatar_diana.png"
 import { Avatar, Box, Button, ChakraProvider, Input, InputGroup, InputRightElement, Stack } from '@chakra-ui/react'
 import {
   HiOutlinePencil
@@ -7,12 +6,14 @@ import {
 import{ useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionGetUsertAsync } from '../redux/actions/userActions'
+import { useNavigate } from 'react-router-dom';
 
 
 
 const UsuarioProfile = () => {
-  
-  const users = useSelector(state => state.userStore.users);
+  const navigate = useNavigate();
+
+  const users = useSelector(state => state.user.users);
   console.log(users)
   const dispatch = useDispatch();
 
@@ -60,12 +61,10 @@ useEffect(() => {
       </Stack>
 ))}
       <Box d="flex" justifyContent="center" alignItems="center" h="100vh" padding="8" align="center" marginTop="100px" >
-        <Button fontSize="14px" fontWeight="ligth" bg="#FFE031" width="90%" maxWidth="90vw" height="44px">
+        <Button onClick={() => {navigate(`/`)}} fontSize="14px" fontWeight="ligth" bg="#FFE031" width="90%" maxWidth="90vw" height="44px">
           Save
         </Button>
       </Box>
-
-      
 
     </ChakraProvider>
     );

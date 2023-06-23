@@ -1,4 +1,3 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { dishesTypes } from "../types/dishesTypes";
 
 const dishesState = {

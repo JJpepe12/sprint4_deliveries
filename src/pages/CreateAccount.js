@@ -11,9 +11,6 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
-
-
-
   // Define the validation schema using Yup
   const validationSchema = Yup.object({
     name: Yup.string().required('Por favor ingrese su nombre'),

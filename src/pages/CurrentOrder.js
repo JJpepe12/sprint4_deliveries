@@ -3,7 +3,6 @@ import { loginGoogle } from '../redux/actions/authActions';
 import { Button, ChakraProvider, Icon, Box, Text} from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import DeliveryTime from '../assets/DeliveryTime.svg'
-import { FcGoogle } from 'react-icons/fc';
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetOrderAsync } from '../redux/actions/orderAction';
@@ -15,6 +14,7 @@ import reposteria from "../assets/platodrest3/reposteria-3-1.jpg"
 const CurrentOrder = () => {
     const dispatch = useDispatch();
     const { order } = useSelector((store) => store.orderStore);
+    console.log(order)
 
     useEffect(() => {
         dispatch(actionGetOrderAsync());
@@ -25,15 +25,6 @@ const CurrentOrder = () => {
 
     const goBack = () => {
         navigate(-1); // Navegar hacia atrás en la historia del navegador
-    };
-
-    const handleGoogleLogin = async () => {
-        await dispatch(loginGoogle());
-        navigate('/')
-    }
-
-    const handleLoginClick = () => {
-        navigate("/home");
     };
 
     const goToPay= () => {

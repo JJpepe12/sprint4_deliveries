@@ -1,6 +1,6 @@
 const fileUpLoad = async (image) => {
-  const cloudName = "drorr9zyq";
-  const presetName =  "food-delivery-rappi";
+  const cloudName = "dg7uip2hd";
+  const presetName = "prueba";
   const urlCloudinary = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
 
   const formData = new FormData();

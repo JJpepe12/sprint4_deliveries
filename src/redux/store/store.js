@@ -3,8 +3,6 @@ import { orderSlicer } from "../slicer/orderSlicer";
 import { restaurantsSlicer } from "../slicer/restaurantSlicer";
 import {userSlicer} from "../slicer/userSlicer";
 import { dishesSlicer } from "../slicer/dishesSlicer";
-// import { applyMiddleware } from "@reduxjs/toolkit";
-// import thunkMiddleware from "redux-thunk";
 
 const reducer = {
     user: userSlicer,
@@ -16,7 +14,6 @@ const reducer = {
 const store = configureStore({
     reducer, 
     devTool: process.env.NODE_ENV !== "production",
-    // middleware: applyMiddleware [thunkMiddleware]
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({  
             serializableCheck: false,

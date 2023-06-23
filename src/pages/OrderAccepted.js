@@ -1,23 +1,10 @@
 import React from 'react'
-import { loginGoogle } from '../redux/actions/authActions';
 import { Button, ChakraProvider, Box, Text } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import orderAccepted from '../assets/orderAccepted.svg'
-import { FcGoogle } from 'react-icons/fc';
 
 const OrderAccepted = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleGoogleLogin = async () => {
-    await dispatch(loginGoogle());
-    navigate('/')
-  }
-
-  const handleLoginClick = () => {
-    navigate("/home");
-  };
 
   const goToLocation = () => {
     navigate('/location');
