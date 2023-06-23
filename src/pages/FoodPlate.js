@@ -62,6 +62,8 @@ const FoodPlate = () => {
     dispatch(actionGetDishAsync());
   }, [dispatch])
 
+  
+
   // const filterDishes = dishes.filter(item => item.restaurant === name);
   // console.log(filterDishes);
   return (
@@ -106,6 +108,9 @@ const FoodPlate = () => {
 
               <Text>
               {dishInfo.description}
+              </Text>
+              <Text>
+              $ {dishInfo.price}
               </Text>
             </Box>
 
