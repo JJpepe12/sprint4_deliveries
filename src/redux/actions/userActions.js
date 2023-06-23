@@ -154,8 +154,40 @@ import { createUserWithEmailAndPassword,
 //       payload: id
 //   }
 // }
-export const listUssersAction = () => {
-  return {
-      type: userTypes.USERS_GET,
-  }
+// export const listUssersAction = () => {
+//   return {
+//       type: userTypes.USERS_GET,
+//   }
+// }
+
+const collectionName = 'user';
+
+
+export const actionGetUsertAsync = () => {
+    return async (dispatch) => {
+        const restaurantsCollection = collection(database, collectionName);
+        const querySnapshot = await getDocs(restaurantsCollection);
+        const users = [];
+        try {
+            querySnapshot.forEach((doc) => {
+                restaurants.push({
+                    id: doc.id,
+                    ...doc.data()
+                });
+            });
+        } catch (error) {
+            console.log(error);
+        }finally{
+            dispatch(actionGetRestaurantSync(restaurants));
+        }
+    }
+}
+
+const actionGetRestaurantSync = (restaurant) => {
+    return {
+        type: restaurantsTypes.RESTAURANT_GET,
+        payload: {
+            restaurant: restaurant
+        }
+    }
 }

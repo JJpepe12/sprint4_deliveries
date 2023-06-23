@@ -1,9 +1,9 @@
-// import { usserTypes } from "../types/userTypes";
+import { usserTypes } from "../types/userTypes";
 
-// const initialValue = {
-//     user: {},
-//     error: null
-// }
+const initialValue = {
+    user: {},
+    error: null
+}
 
 
 // const usserReducer = (state = initialValue, action) => {

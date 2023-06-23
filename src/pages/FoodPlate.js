@@ -240,7 +240,7 @@ const FoodPlate = () => {
               </Button>
 
 
-              <Button bg="#FFE031" >
+              <Button bg="#FFE031" onClick={() => { navigate(`purchase`) }}>
                 <Box  display="flex"
                 alignItems="center"
                 gap="100px"  flexDirection="row"

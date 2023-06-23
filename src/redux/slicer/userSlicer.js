@@ -1,20 +1,26 @@
 import { validateYupSchema } from "formik";
 import { userTypes } from "../types/userTypes";
 
-const initialValue = {
-    user: [
-        {
-            id: 1,
-            name: "pao"
-        },
-        {
-            id: 2,
-            name: "jose"
-        }
+// const initialValue = {
+//     user: [
+//         {
+//             id: 1,
+//             name: "pao"
+//         },
+//         {
+//             id: 2,
+//             name: "jose"
+//         }
 
-    // error: null
-]
+//     // error: null
+// ]
+// }
+
+const initialValue = {
+    user: {},
+    error: null
 }
+
 
 export const userSlicer = (state=initialValue, action) => {
     switch (action.type) {
