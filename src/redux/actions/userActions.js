@@ -162,8 +162,41 @@
 import {
   createUserWithEmailAndPassword, updateProfile, signOut
 } from "firebase/auth";
-import { auth } from "../../firebase/firebaseConfig";
+import { auth, database } from "../../firebase/firebaseConfig";
 import { userTypes } from "../types/userTypes";
+import { collection, getDocs } from "@firebase/firestore";
+
+const collectionName = 'users';
+
+
+export const actionGetUsertAsync = () => {
+    return async (dispatch) => {
+        const usersCollection = collection(database, collectionName);
+        const querySnapshot = await getDocs(usersCollection);
+        const users = [];
+        try {
+            querySnapshot.forEach((doc) => {
+              users.push({
+                    id: doc.id,
+                    ...doc.data()
+                });
+            });
+        } catch (error) {
+            console.log(error);
+        }finally{
+            dispatch(actionGetUserSync(users));
+        }
+    }
+}
+
+const actionGetUserSync = (user) => {
+    return {
+        type: userTypes.USERS_GET,
+        payload: {
+            user: user
+        }
+    }
+}
 
 export const registerActionAsync = ({ email, password, name, avatar }) => {
   return async (dispatch) => {

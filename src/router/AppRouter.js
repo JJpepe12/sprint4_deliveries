@@ -14,6 +14,7 @@ import GlobalStyles from "../components/styles/GlobalStyle";
 import CreateAccount from "../pages/CreateAccount";
 import UsuarioProfile from "../pages/UsuarioProfile";
 import Purchases from "../pages/Purchases";
+import Searchs from "../pages/Searchs";
 // import { onAuthStateChanged } from "firebase/auth";
 // import { auth } from "../firebase/firebaseConfig";
 // import { useDispatch, useSelector } from "react-redux";
@@ -70,6 +71,7 @@ const AppRouter = () => {
               {/* <Route path={"foodplate"} element={<FoodPlate />}/>  */}
               <Route path="/foodplate/:name" element={<FoodPlate />} />
               <Route path={"search"} element={<Search />} />
+               <Route path={"searchs"} element={<Searchs />} />
             </Route>
             <Route element={<PrivateRouter />}>
 

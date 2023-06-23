@@ -15,37 +15,27 @@ import { userTypes } from "../types/userTypes";
 //     // error: null
 // ]
 // }
-const initialValue = {
-    user: {},
-    error: null
+const usersState = {
+    users: []
 }
 
 
-export const userSlicer = (state = initialValue, action) => {
+export const userSlicer = (state = usersState, action) => {
     switch (action.type) {
         case userTypes.USERS_GET:
-
-            return {
-                ...state
-            };
-
-
-        case userTypes.USERS_CREATE:
-
             return{
                 ...state,
-                create: action.payload
+                users: action.payload.user
             };
-
-
-            
-        case userTypes.USERS_UPDATE:
-
-            return;
-        default: 
+        // case restaurantsTypes.RESTAURANT_FILTERED:
+        //         return{
+        //             ...state,
+        //             restaurants: action.payload.restaurant,
+        //         };
+        default:
             return state;
-    }
-}
+    };
+};
 
 //
 
