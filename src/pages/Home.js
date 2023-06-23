@@ -25,6 +25,7 @@ import { actionGetRestaurantAsync } from '../redux/actions/restaurantAction';
 import { auth } from "../firebase/firebaseConfig";
 import { useNavigate } from 'react-router-dom'
 import Swal from "sweetalert2";
+import { logoutActionAsync } from "../redux/actions/userActions";
 
 const Home = () => {
 
@@ -71,7 +72,7 @@ const Home = () => {
               <Text>882 Well St, New-York</Text>
             </Box>
             <Box marginLeft="auto">
-            <Button background="#FFE031" size="xs" color="white">
+            <Button onClick={() => dispatch(logoutActionAsync())} background="#FFE031" size="xs" color="white">
               Cerrar Sesión
             </Button>
           </Box>

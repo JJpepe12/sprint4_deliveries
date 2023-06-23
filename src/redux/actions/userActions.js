@@ -44,41 +44,7 @@
 //   };
 // };
 
-// export const actionLoginAsync = ({ email, password }) => {
-//   return (dispatch) => {
-//     signInWithEmailAndPassword(auth, email, password)
-//       .then(({ user }) => {
-//         const { displayName, accessToken, photoURL, phoneNumber } =
-//           user.auth.currentUser;
-//         dispatch(
-//           actionLoginSync({
-//             email,
-//             name: displayName,
-//             accessToken,
-//             photoURL,
-//             phoneNumber,
-//             error: false,
-//           })
-//         );
-//       })
-//       .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         console.log(errorCode);
-//         console.log(errorMessage);
-//         dispatch(actionLoginSync({ email, error: true, errorMessage }));
-//       });
-//   };
-// };
 
-// export const actionLoginSync = (user) => {
-//   return {
-//     type: userTypes.LOGIN_USER,
-//     payload: {
-//       ...user,
-//     },
-//   };
-// };
 
 // export const loginProviderAsync = (provider) => {
 //   return (dispatch) => {
@@ -160,7 +126,7 @@
 //   }
 // }
 import {
-  createUserWithEmailAndPassword, updateProfile, signOut
+  createUserWithEmailAndPassword, updateProfile, signOut, signInWithEmailAndPassword
 } from "firebase/auth";
 import { auth, database } from "../../firebase/firebaseConfig";
 import { userTypes } from "../types/userTypes";
@@ -258,3 +224,31 @@ const logoutActionSync = (error) => {
     payload: error,
   };
 };
+
+export const loginActionAsync = (email, password) => {
+  return async (dispatch) => {
+    try {
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+      const { displayName, accessToken, photoURL } = user.auth.currentUser;
+
+      const userLogged = {
+        email,
+        name: displayName,
+        avatar: photoURL,
+        accessToken,
+      };
+
+      dispatch(loginActionSync(userLogged));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const loginActionSync = (user) => {
+  return {
+    type: userTypes.USERS_GET,
+    payload: user,
+  };
+};
+

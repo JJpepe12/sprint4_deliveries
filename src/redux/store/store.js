@@ -7,11 +7,12 @@ import { dishesSlicer } from "../slicer/dishesSlicer";
 // import thunkMiddleware from "redux-thunk";
 
 const reducer = {
-    userStore: userSlicer,
+    user: userSlicer,
     restaurantStore: restaurantsSlicer,
     dishesStore: dishesSlicer,
     orderStore: orderSlicer
 };
+
 const store = configureStore({
     reducer, 
     devTool: process.env.NODE_ENV !== "production",

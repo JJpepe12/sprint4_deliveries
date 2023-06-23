@@ -89,6 +89,10 @@ const FoodPlate = () => {
       setAdditionalCost(additionalCost - 3.00);
     }
   };
+
+  const goToCurrent = () => {
+    navigate('/pay');
+  };
   // const filterDishes = dishes.filter(item => item.restaurant === name);
   // console.log(filterDishes);
   return (
@@ -241,8 +245,8 @@ const FoodPlate = () => {
                 ></Button>
               </Button>
 
+              <Button bg="#FFE031"  onClick={goToCurrent}>
 
-              <Button bg="#FFE031" onClick={() => { navigate(`purchase`) }}>
                 <Box  display="flex"
                 alignItems="center"
                 gap="100px"  flexDirection="row"
