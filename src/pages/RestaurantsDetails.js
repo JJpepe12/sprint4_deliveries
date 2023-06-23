@@ -12,30 +12,30 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import Logo from "../assets/restaurant/PardesLogo.svg";
-import restaurant1 from "../assets/restaurant/rest1.svg";
 import { FaStar } from "react-icons/fa";
 import CarruselCategory from "../components/carruselCategory/CarruselCategory";
-import { saladRestor } from "../utils/data";
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetDishAsync } from '../redux/actions/dishesAction';
-import { auth } from '../firebase/firebaseConfig';
 import { useNavigate, useParams } from "react-router-dom";
+
+
+
+
+
+
+
 const RestaurantsDetails = () => {
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const dishes = useSelector(state => state.dishesStore.dishes);
-  // console.log(dishes)
-  // const {name} = useParams();
-  // const getDocsDetailsProducts = () => {
-  //   const dataDishes = dishes.products.slice();
-  //   const descriptionDishes = dataDishes.find(dish =>dish.name === name )
-  // }
-  // const getDocsDetailsRestaurant = 
+
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1); // Navegar hacia atrás en la historia del navegador
+  };
+
   const dispatch = useDispatch();
   const { name } = useParams();
   console.log(name);
-  const navigate = useNavigate();
+
 
   // useEffect(() => {
   //   infoRestaurant()
@@ -77,38 +77,42 @@ const RestaurantsDetails = () => {
   return (
     <>
       <ChakraProvider>
+      <Box display="flex" alignItems="left" flexDirection="row" p={9}>
         {restaurantInfo ? (
-        <Box display="flex" alignItems="left" flexDirection="row" p={6}>
-          <Icon as={ChevronLeftIcon} fontSize="2rem" />
-          <Box
-            display="flex"
-            alignItems="center"
-            marginLeft="80px"
-            marginTop="40px"
-          >
-            <Image src={restaurantInfo.logo} alt="logo restaurant" w="150px" />
+          <Box display="flex" alignItems="left" flexDirection="row" p={6}>
+            <Icon as={ChevronLeftIcon} fontSize="2rem" onClick={goBack} cursor="pointer" />
+            <Box
+              display="flex"
+              alignItems="center"
+              marginLeft="80px"
+             
+            >
+              <Image src={restaurantInfo.logo} alt="logo restaurant" w="150px" />
 
+            </Box>
           </Box>
+        ) : (<text> Restaurante no encontrado</text>)
+        }
         </Box>
-                ) : (<text> Restaurante no encontrado</text>)
-              }
+
+
         <Box
           display="flex"
           alignItems="center"
-          w={{ base: "358px", md: "500px" }} // Ajusta el ancho de la tarjeta según el tamaño de pantalla
+          w="100%" 
           h="106px"
           p={2}
           borderRadius="18px"
-          marginTop="20px"
+          marginTop="60px"
           padding={6}
         >
           {restaurantInfo ? (
-            <Card display="flex" flexDirection="row" w="100%" shadow="0" 
-           >
+            <Card display="flex" flexDirection="row" w="100%" shadow="0"
+            >
               <Image
                 objectFit="cover"
-                width="145px"
-                height="120px"
+                width="180px"
+                height="140px"
                 src={restaurantInfo.img}
                 alt="restaurantlogo"
                 borderRadius="10px"
@@ -119,10 +123,10 @@ const RestaurantsDetails = () => {
                 }}
               />
 
-              <Stack>
-                <CardBody padding="13px" width="200px" paddingTop="1px">
-                  <Text size="md">{restaurantInfo.name}</Text>
-                  <Text py="2" fontSize="10px" letterSpacing="-0.3px">
+              <Stack display="flex">
+                <CardBody paddingTop="1px">
+                  <Text fontSize="22px">{restaurantInfo.name}</Text>
+                  <Text py="2" fontSize="13px" letterSpacing="-0.3px" > 
                     {restaurantInfo.description}
                   </Text>
                   <Box
@@ -150,23 +154,31 @@ const RestaurantsDetails = () => {
                 </CardBody>
               </Stack>
             </Card>
-             ) : (<text> Restaurante no encontrado</text>)
-            }
+          ) : (<text> Restaurante no encontrado</text>)
+          }
         </Box>
-        <Stack paddingTop="30px">
+
+        
+        <Stack paddingTop="90px">
           <CarruselCategory />
         </Stack>
-        <Grid
-          templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
+
+
+        <Box >
+        <Grid  display="flex" flexDirection="row" flexWrap="wrap" justifyContent="center"
+          templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)"}}
           gap={4}
           paddingTop="30px"
-          p={6}
+          p={4}
         >
           {filterDishes && filterDishes.length ?
             (filterDishes.map((item) => (
-              <Card key={item.id}
+              <Card width="250px" display="flex"  key={item.id}
                 onClick={() => { navigate(`/foodplate/${item.name}`) }}>
-                <Image borderRadius="10px" src={item.img} alt={item.name} />
+                <Image width="250px"
+                  height="150px"
+                  object-fit= "contain"
+                  borderRadius="10px" src={item.img} alt={item.name} />
                 <CardBody>
                   <Text fontSize="14px">{item.name}</Text>
                   <Text color="gray">{item.price}</Text>
@@ -175,6 +187,7 @@ const RestaurantsDetails = () => {
             ))) : (<> <text> restaurante sin servicio </text></>)
           }
         </Grid>
+        </Box>
       </ChakraProvider>
     </>
   );

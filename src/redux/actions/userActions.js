@@ -44,41 +44,7 @@
 //   };
 // };
 
-// export const actionLoginAsync = ({ email, password }) => {
-//   return (dispatch) => {
-//     signInWithEmailAndPassword(auth, email, password)
-//       .then(({ user }) => {
-//         const { displayName, accessToken, photoURL, phoneNumber } =
-//           user.auth.currentUser;
-//         dispatch(
-//           actionLoginSync({
-//             email,
-//             name: displayName,
-//             accessToken,
-//             photoURL,
-//             phoneNumber,
-//             error: false,
-//           })
-//         );
-//       })
-//       .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         console.log(errorCode);
-//         console.log(errorMessage);
-//         dispatch(actionLoginSync({ email, error: true, errorMessage }));
-//       });
-//   };
-// };
 
-// export const actionLoginSync = (user) => {
-//   return {
-//     type: userTypes.LOGIN_USER,
-//     payload: {
-//       ...user,
-//     },
-//   };
-// };
 
 // export const loginProviderAsync = (provider) => {
 //   return (dispatch) => {
