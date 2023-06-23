@@ -12,6 +12,7 @@ const reducer = {
     dishesStore: dishesSlicer,
     orderStore: orderSlicer
 };
+
 const store = configureStore({
     reducer, 
     devTool: process.env.NODE_ENV !== "production",
