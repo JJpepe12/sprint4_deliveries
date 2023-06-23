@@ -13,12 +13,8 @@ import Search from "../pages/Search";
 import GlobalStyles from "../components/styles/GlobalStyle";
 import CreateAccount from "../pages/CreateAccount";
 import UsuarioProfile from "../pages/UsuarioProfile";
-import Purchases from "../pages/Purchases";
 import Searchs from "../pages/Searchs";
-// import { onAuthStateChanged } from "firebase/auth";
-// import { auth } from "../firebase/firebaseConfig";
-// import { useDispatch, useSelector } from "react-redux";
-// // import { actionLoginSync } from "../redux/actions/userActions";
+
 
 const AppRouter = () => {
   //   // const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -65,7 +61,6 @@ const AppRouter = () => {
               <Route path="createaccount" element={<CreateAccount />} />
               <Route path="profile" element={<UsuarioProfile />} />
               <Route path="home" element={<Home />} />
-              <Route path="purchases" element={<Purchases />} />
               {/* <Route path={"details"} element={<RestaurantsDetails/>}/> */}
               <Route path="/detailsRestaurant/:name" element={<RestaurantsDetails />} />
               {/* <Route path={"foodplate"} element={<FoodPlate />}/>  */}
