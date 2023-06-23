@@ -12,14 +12,10 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import Logo from "../assets/restaurant/PardesLogo.svg";
-import restaurant1 from "../assets/restaurant/rest1.svg";
 import { FaStar } from "react-icons/fa";
 import CarruselCategory from "../components/carruselCategory/CarruselCategory";
-import { saladRestor } from "../utils/data";
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetDishAsync } from '../redux/actions/dishesAction';
-import { auth } from '../firebase/firebaseConfig';
 import { useNavigate, useParams } from "react-router-dom";
 
 
@@ -39,7 +35,7 @@ const RestaurantsDetails = () => {
   const dispatch = useDispatch();
   const { name } = useParams();
   console.log(name);
- 
+
 
   // useEffect(() => {
   //   infoRestaurant()
@@ -82,24 +78,24 @@ const RestaurantsDetails = () => {
     <>
       <ChakraProvider>
         {restaurantInfo ? (
-        <Box display="flex" alignItems="left" flexDirection="row" p={6}>
-        <Icon as={ChevronLeftIcon} fontSize="2rem" onClick={goBack} cursor="pointer"  />
-          <Box
-            display="flex"
-            alignItems="center"
-            marginLeft="80px"
-            marginTop="40px"
-          >
-            <Image src={restaurantInfo.logo} alt="logo restaurant" w="150px" />
+          <Box display="flex" alignItems="left" flexDirection="row" p={6}>
+            <Icon as={ChevronLeftIcon} fontSize="2rem" onClick={goBack} cursor="pointer" />
+            <Box
+              display="flex"
+              alignItems="center"
+              marginLeft="80px"
+             
+            >
+              <Image src={restaurantInfo.logo} alt="logo restaurant" w="150px" />
 
+            </Box>
           </Box>
-        </Box>
-                ) : (<text> Restaurante no encontrado</text>)
-              }
+        ) : (<text> Restaurante no encontrado</text>)
+        }
         <Box
           display="flex"
           alignItems="center"
-          w={{ base: "358px", md: "500px" }} // Ajusta el ancho de la tarjeta según el tamaño de pantalla
+          w="100%" 
           h="106px"
           p={2}
           borderRadius="18px"
@@ -107,12 +103,12 @@ const RestaurantsDetails = () => {
           padding={6}
         >
           {restaurantInfo ? (
-            <Card display="flex" flexDirection="row" w="100%" shadow="0" 
-           >
+            <Card display="flex" flexDirection="row" w="100%" shadow="0"
+            >
               <Image
                 objectFit="cover"
-                width="145px"
-                height="120px"
+                width="180px"
+                height="140px"
                 src={restaurantInfo.img}
                 alt="restaurantlogo"
                 borderRadius="10px"
@@ -154,8 +150,8 @@ const RestaurantsDetails = () => {
                 </CardBody>
               </Stack>
             </Card>
-             ) : (<text> Restaurante no encontrado</text>)
-            }
+          ) : (<text> Restaurante no encontrado</text>)
+          }
         </Box>
         <Stack paddingTop="30px">
           <CarruselCategory />
@@ -170,7 +166,10 @@ const RestaurantsDetails = () => {
             (filterDishes.map((item) => (
               <Card key={item.id}
                 onClick={() => { navigate(`/foodplate/${item.name}`) }}>
-                <Image borderRadius="10px" src={item.img} alt={item.name} />
+                <Image width=" 300px"
+                  height="150px"
+                  object-fit= "contain"
+                  borderRadius="10px" src={item.img} alt={item.name} />
                 <CardBody>
                   <Text fontSize="14px">{item.name}</Text>
                   <Text color="gray">{item.price}</Text>
