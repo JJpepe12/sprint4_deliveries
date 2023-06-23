@@ -1,4 +1,4 @@
-import { validateYupSchema } from "formik";
+// import { validateYupSchema } from "formik";
 import { userTypes } from "../types/userTypes";
 
 // const initialValue = {
@@ -15,29 +15,33 @@ import { userTypes } from "../types/userTypes";
 //     // error: null
 // ]
 // }
-
 const initialValue = {
     user: {},
     error: null
 }
 
 
-export const userSlicer = (state=initialValue, action) => {
+export const userSlicer = (state = initialValue, action) => {
     switch (action.type) {
         case userTypes.USERS_GET:
 
             return {
                 ...state
             };
-        // case userTypes.USERS_CREATE:
 
-        //     return{
-        //         ...state,
-        //         create: action.payload
-        //     };
-        // case userTypes.USERS_UPDATE:
 
-        //     return;
+        case userTypes.USERS_CREATE:
+
+            return{
+                ...state,
+                create: action.payload
+            };
+
+
+            
+        case userTypes.USERS_UPDATE:
+
+            return;
         default: 
             return state;
     }

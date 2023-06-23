@@ -6,6 +6,7 @@ import {
   Card,
   Stack,
   CardBody,
+  Button,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
@@ -69,6 +70,11 @@ const Home = () => {
               </Text>
               <Text>882 Well St, New-York</Text>
             </Box>
+            <Box marginLeft="auto">
+            <Button background="#FFE031" size="xs" color="white">
+              Cerrar Sesión
+            </Button>
+          </Box>
           </Box>
 
           {/*............ CARRUSEL ENVIOS......... */}
