@@ -77,7 +77,7 @@ const CarruselCategory = () => {
             onClick={() => {
               dispatch(actionGetRestaurantAsync());
               dispatch(actionGetDishAsync());
-            }}> All </Button>
+            }}> <Text fontSize="12px"> All </Text></Button>
         </Box>
         {categories.map((category) => (
           <Box p={2}>

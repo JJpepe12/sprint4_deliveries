@@ -124,19 +124,6 @@ const CreateAccount = () => {
               />
             </Box>
 
-            {/* <Box borderBottom="1px solid gray">
-              <Text color="gray">Avatar</Text>
-              <Field
-                type="file"
-                name="avatar"
-                style={{ color: "gray", fontSize: "13px" }}
-              />
-              <ErrorMessage
-                name="avatar"
-                component="div"
-                style={{ color: "red" }}
-              />
-            </Box> */}
 
             <Box borderBottom="1px solid gray">
               <Text color="gray">Avatar</Text>
