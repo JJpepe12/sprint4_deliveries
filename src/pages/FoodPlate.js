@@ -106,6 +106,8 @@ const FoodPlate = () => {
             src={dishInfo.img}
             alt="salad 2"
             borderRadius="10px"
+       
+           
           />
 
           <Stack spacing={4} marginTop={6} p={4}>
