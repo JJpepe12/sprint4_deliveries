@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { orderSlicer } from "../slicer/orderSlicer";
-import { restaurantSlicer } from "../slicer/restaurantSlicer";
+import { restaurantsSlicer } from "../slicer/restaurantSlicer";
 import {userSlicer} from "../slicer/userSlicer";
 import { dishesSlicer } from "../slicer/dishesSlicer";
 // import { applyMiddleware } from "@reduxjs/toolkit";
@@ -8,7 +8,7 @@ import { dishesSlicer } from "../slicer/dishesSlicer";
 
 const reducer = {
     userStore: userSlicer,
-    restaurantStore: restaurantSlicer,
+    restaurantStore: restaurantsSlicer,
     dishesStore: dishesSlicer,
     orderStore: orderSlicer
 };
