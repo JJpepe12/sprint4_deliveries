@@ -17,14 +17,23 @@ import restaurant1 from "../assets/restaurant/rest1.svg";
 import { FaStar } from "react-icons/fa";
 import CarruselCategory from "../components/carruselCategory/CarruselCategory";
 import { saladRestor } from "../utils/data";
+import { useNavigate } from "react-router-dom";
 
 const RestaurantsDetails = () => {
+
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1); // Navegar hacia atrás en la historia del navegador
+  };
+
+
   return (
     <>
       <ChakraProvider>
         {/* Logo restaurant */}
         <Box display="flex" alignItems="left" flexDirection="row" p={6}>
-          <Icon as={ChevronLeftIcon} fontSize="2rem" />
+        <Icon as={ChevronLeftIcon} fontSize="2rem" onClick={goBack} cursor="pointer"  />
           <Box
             display="flex"
             alignItems="center"
