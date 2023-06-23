@@ -159,18 +159,24 @@
 //       type: userTypes.USERS_GET,
 //   }
 // }
+import {
+  createUserWithEmailAndPassword, updateProfile, signOut
+} from "firebase/auth";
+import { auth, database } from "../../firebase/firebaseConfig";
+import { userTypes } from "../types/userTypes";
+import { collection, getDocs } from "@firebase/firestore";
 
-const collectionName = 'user';
+const collectionName = 'users';
 
 
 export const actionGetUsertAsync = () => {
     return async (dispatch) => {
-        const restaurantsCollection = collection(database, collectionName);
-        const querySnapshot = await getDocs(restaurantsCollection);
+        const usersCollection = collection(database, collectionName);
+        const querySnapshot = await getDocs(usersCollection);
         const users = [];
         try {
             querySnapshot.forEach((doc) => {
-                restaurants.push({
+              users.push({
                     id: doc.id,
                     ...doc.data()
                 });
@@ -178,24 +184,19 @@ export const actionGetUsertAsync = () => {
         } catch (error) {
             console.log(error);
         }finally{
-            dispatch(actionGetRestaurantSync(restaurants));
+            dispatch(actionGetUserSync(users));
         }
     }
 }
 
-const actionGetRestaurantSync = (restaurant) => {
+const actionGetUserSync = (user) => {
     return {
-        type: restaurantsTypes.RESTAURANT_GET,
+        type: userTypes.USERS_GET,
         payload: {
-            restaurant: restaurant
+            user: user
         }
     }
 }
-import {
-  createUserWithEmailAndPassword, updateProfile, signOut
-} from "firebase/auth";
-import { auth } from "../../firebase/firebaseConfig";
-import { userTypes } from "../types/userTypes";
 
 export const registerActionAsync = ({ email, password, name, avatar }) => {
   return async (dispatch) => {
